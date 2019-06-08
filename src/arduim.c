@@ -31,24 +31,50 @@ void main(void)
 		loop();
 }
 
-int analogRead(uint8_t channel);
+void pinMode(uint8_t pin, uint8_t mode);
 {
-	SetChanADC(channel); //select channel
-	ConvertADC();		 //start convertion
-	while(BusyADC()) 	 //wait convertion ends
-		;
-	return ReadADC();
-}
+	if ( (mode != INPUT && mode != OUTPUT) || pin > E2 )
+		return;
 
-int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
-{
-        
-}
+	switch (pin)
+	{
+		case A0: TRISAbits.RA0 = mode; break;
+		case A1: TRISAbits.RA1 = mode; break;
+		case A2: TRISAbits.RA2 = mode; break;
+		case A3: TRISAbits.RA3 = mode; break;
+		case A4: TRISAbits.RA4 = mode; break;
+		case A5: TRISAbits.RA5 = mode; break;
 
-void delay(unsigned long time);
-{
-	while(time-- > 0)
-		Delay1KTCYx(12);
+		case B0: TRISBbits.RB0 = mode; break;
+		case B1: TRISBbits.RB1 = mode; break;
+		case B2: TRISBbits.RB2 = mode; break;
+		case B3: TRISBbits.RB3 = mode; break;
+		case B4: TRISBbits.RB4 = mode; break;
+		case B5: TRISBbits.RB5 = mode; break;
+		case B6: TRISBbits.RB6 = mode; break;
+		case B7: TRISBbits.RB7 = mode; break;
+
+		case C0: TRISCbits.RC0 = mode; break;
+		case C1: TRISCbits.RC1 = mode; break;
+		case C2: TRISCbits.RC2 = mode; break;
+		case C6: TRISCbits.RC6 = mode; break;
+		case C7: TRISCbits.RC7 = mode; break;
+
+		case D0: TRISDbits.RD0 = mode; break;
+		case D1: TRISDbits.RD1 = mode; break;
+		case D2: TRISDbits.RD2 = mode; break;
+		case D3: TRISDbits.RD3 = mode; break;
+		case D4: TRISDbits.RD4 = mode; break;
+		case D5: TRISDbits.RD5 = mode; break;
+		case D6: TRISDbits.RD6 = mode; break;
+		case D7: TRISDbits.RD7 = mode; break;
+
+		case E0: TRISEbits.RE0 = mode; break;
+		case E1: TRISEbits.RE1 = mode; break;
+		case E2: TRISEbits.RE2 = mode; break;
+
+		default: break;
+	}
 }
 
 int digitalRead(uint8_t pin)
@@ -143,48 +169,22 @@ void digitalWrite(uint8_t pin, uint8_t level);
 	}
 }
 
-void pinMode(uint8_t pin, uint8_t mode);
+int analogRead(uint8_t channel);
 {
-	if ( (mode != INPUT && mode != OUTPUT) || pin > E2 )
-		return;
+	SetChanADC(channel); //select channel
+	ConvertADC();		 //start convertion
+	while(BusyADC()) 	 //wait convertion ends
+		;
+	return ReadADC();
+}
 
-	switch (pin)
-	{
-		case A0: TRISAbits.RA0 = mode; break;
-		case A1: TRISAbits.RA1 = mode; break;
-		case A2: TRISAbits.RA2 = mode; break;
-		case A3: TRISAbits.RA3 = mode; break;
-		case A4: TRISAbits.RA4 = mode; break;
-		case A5: TRISAbits.RA5 = mode; break;
+int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
+{
+        
+}
 
-		case B0: TRISBbits.RB0 = mode; break;
-		case B1: TRISBbits.RB1 = mode; break;
-		case B2: TRISBbits.RB2 = mode; break;
-		case B3: TRISBbits.RB3 = mode; break;
-		case B4: TRISBbits.RB4 = mode; break;
-		case B5: TRISBbits.RB5 = mode; break;
-		case B6: TRISBbits.RB6 = mode; break;
-		case B7: TRISBbits.RB7 = mode; break;
-
-		case C0: TRISCbits.RC0 = mode; break;
-		case C1: TRISCbits.RC1 = mode; break;
-		case C2: TRISCbits.RC2 = mode; break;
-		case C6: TRISCbits.RC6 = mode; break;
-		case C7: TRISCbits.RC7 = mode; break;
-
-		case D0: TRISDbits.RD0 = mode; break;
-		case D1: TRISDbits.RD1 = mode; break;
-		case D2: TRISDbits.RD2 = mode; break;
-		case D3: TRISDbits.RD3 = mode; break;
-		case D4: TRISDbits.RD4 = mode; break;
-		case D5: TRISDbits.RD5 = mode; break;
-		case D6: TRISDbits.RD6 = mode; break;
-		case D7: TRISDbits.RD7 = mode; break;
-
-		case E0: TRISEbits.RE0 = mode; break;
-		case E1: TRISEbits.RE1 = mode; break;
-		case E2: TRISEbits.RE2 = mode; break;
-
-		default: break;
-	}
+void delay(unsigned long time);
+{
+	while(time-- > 0)
+		Delay1KTCYx(12);
 }
