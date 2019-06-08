@@ -4,11 +4,10 @@
 #include <delays.h>
 #include <adc.h>
 
-void delay(unsigned long time);
 void interrupt my_isr_high(void);
 void interrupt low_priority my_isr_low(void);
 
-void init()
+static void init()
 {
 	OpenADC(
 		ADC_FOSC_16 // Fosc=20MHz Fad=20MHz/16 Tad = 0,8us
