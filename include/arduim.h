@@ -1,14 +1,13 @@
 #ifndef ARDUIM_H
 #define ARDUIM_H
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-#include <math.h>
+#define ARDUIM_ERROR -1
+#define LOW  0x0
+#define HIGH 0x1
 
-#define INPUT 0x0
-#define OUTPUT 0x1
-#define INPUT_PULLUP 0x2
+#define OUTPUT 0x0
+#define INPUT 0x1
+//#define INPUT_PULLUP 0x2
 
 #define PI 3.1415926535897932384626433832795
 #define HALF_PI 1.5707963267948966192313216916398
@@ -44,6 +43,7 @@ void setup(void);
 void loop(void);
 
 long map(long, long, long, long, long);
+void delay(unsigned long);
 
 #include "pins_arduim.h"
 
