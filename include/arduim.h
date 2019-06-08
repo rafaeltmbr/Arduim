@@ -49,5 +49,6 @@ long map(long, long, long, long, long);
 
 #ifdef ARDUIM_SOURCE
 #include "../src/arduim.c"
+#endif // ARDUIM_SOURCE
 
 #endif // ARDUIM_H
