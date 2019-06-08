@@ -4,5 +4,6 @@
 
 #ifdef LCD_SOURCE
 #include "../src/lcd.c"
+#endif
 
 #endif // LCD_H
