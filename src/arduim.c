@@ -7,12 +7,12 @@ static void init()
 {
 	OpenADC(
 		ADC_FOSC_16 // Fosc=20MHz Fad=20MHz/16 Tad = 0,8us
-		&ADC_RIGHT_JUST // Resultado justificado a direita
-		&ADC_4_TAD, // Configuração do tempo automático (4*Tad=3,2us)
+		& ADC_RIGHT_JUST // Resultado justificado a direita
+		& ADC_4_TAD, // Configuração do tempo automático (4*Tad=3,2us)
 
 		ADC_INT_OFF // Interrupção desabilitada
-		&ADC_REF_VDD_VSS // Vref+ = Vcc (5V) e Vref- = Vss
-		&ADC_CH4, // Seleciona canal 0
+		& ADC_REF_VDD_VSS // Vref+ = Vcc (5V) e Vref- = Vss
+		& ADC_CH4, // Seleciona canal 0
 
 		ADC_5ANA // Habilita entrada analógica AN0, digital AN1 a AN15
 	);
