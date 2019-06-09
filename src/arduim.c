@@ -1,7 +1,7 @@
 #include "../include/arduim.h"
 
-void interrupt my_isr_high(void);
-void interrupt low_priority my_isr_low(void);
+//void interrupt my_isr_high(void);
+//void interrupt low_priority my_isr_low(void);
 
 static void init()
 {
@@ -164,7 +164,7 @@ void digitalWrite(uint8_t pin, uint8_t level)
 	}
 }
 
-int analogRead(uint8_t channel);
+int analogRead(uint8_t channel)
 {
 	SetChanADC(channel); //select channel
 	ConvertADC();		 //start convertion
@@ -179,7 +179,7 @@ int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 		(toHigh - toLow) + toLow );
 }
 
-void delay(unsigned long time);
+void delay(unsigned long time)
 {
 	for ( ; time > 0; time--)
 		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000.0 );

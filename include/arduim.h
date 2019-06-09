@@ -17,7 +17,7 @@
 # include <xc.h>
 # include <p18f4550.h>
 # include <delays.h>
-#include <adc.h>
+# include <adc.h>
 #endif
 
 #define ARDUIM_ERROR -1
