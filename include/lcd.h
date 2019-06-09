@@ -1,10 +1,16 @@
 #ifndef LCD_H
 #define LCD_H
 
-#include <xc.h>
-#include <p18f4550.h>
-#include <delays.h>
 #include <stdint.h>
+
+#ifdef DEBUG
+# include "p18f4550.h"
+# include "delays.h"
+#else
+# include <xc.h>
+# include <p18f4550.h>
+# include <delays.h>
+#endif
 
 typedef struct {
     void (*print) (const char*);

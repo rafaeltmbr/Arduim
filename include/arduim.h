@@ -2,12 +2,18 @@
 #define ARDUIM_H
 
 #include "pins_arduim.h"
-
-#include <xc.h>
-#include <p18f4550.h>
-#include <adc.h>
-#include <delays.h>
 #include <stdint.h>
+
+#ifdef DEBUG
+# include "p18f4550.h"
+# include "delays.h"
+# include "adc.h"
+#else
+# include <xc.h>
+# include <p18f4550.h>
+# include <delays.h>
+#include <adc.h>
+#endif
 
 #define ARDUIM_ERROR -1
 #define LOW  0x0

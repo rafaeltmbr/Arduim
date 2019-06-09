@@ -1,3 +1,4 @@
+#define DEBUG
 #include "../include/arduim.h"
 
 #define PWM_LED 1
