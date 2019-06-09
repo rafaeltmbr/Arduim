@@ -1,6 +1,11 @@
 #ifndef LCD_H
 #define LCD_H
 
+#include <xc.h>
+#include <p18f4550.h>
+#include <delays.h>
+#include <stdint.h>
+
 typedef struct {
     void (*print) (const char*);
     void (*clear) (void);

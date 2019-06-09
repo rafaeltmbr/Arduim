@@ -1,7 +1,4 @@
 #include "../include/lcd.h"
-#include <xc.h>
-#include <p18f4550.h>
-#include <delays.h>
 
 #define LCD_RS PORTCbits.RC6 	  // Pino do PIC ligado no RS do LCD
 #define LCD_EN PORTCbits.RC7 	  // Pino do PIC ligado no Enable do LCD

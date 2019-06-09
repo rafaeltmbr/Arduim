@@ -3,10 +3,11 @@
 
 #include "pins_arduim.h"
 
-//#include <xc.h>
+#include <xc.h>
 #include <p18f4550.h>
 #include <adc.h>
 #include <delays.h>
+#include <stdint.h>
 
 #define ARDUIM_ERROR -1
 #define LOW  0x0
