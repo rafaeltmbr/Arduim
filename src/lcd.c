@@ -10,14 +10,6 @@
 #define LCD_DB PORTD 		  // Porta do PIC ligado nos pinos DB0..DB7 do LCD
 #define LCD_TRIS TRISD 		  // Direção da Porta do PIC ligado nos pinos DB0..DB7 do LCD
 
-void lcd_init();            // Protótipo da função lcd_init
-void lcd_cmd(char cmd);     // Protótipo da função lcd_cmd
-void lcd_data(char data);   // Protótipo da função lcd_data
-void lcd_number(int number);// Protótipo da função lcd_number
-void lcd_print(const char* s);
-void lcd_clear(void);
-void lcd_set_cursor(char line, char column);
-
 void lcd_init()
 {
 	LCD_TRIS = 0x00; 		// Configura porta do LCD de saída

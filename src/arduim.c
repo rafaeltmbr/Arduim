@@ -1,8 +1,4 @@
 #include "../include/arduim.h"
-#include <xc.h>
-#include <p18f4550.h>
-#include <delays.h>
-#include <adc.h>
 
 void interrupt my_isr_high(void);
 void interrupt low_priority my_isr_low(void);
@@ -30,9 +26,9 @@ void main(void)
 		loop();
 }
 
-void pinMode(uint8_t pin, uint8_t mode);
+void pinMode(uint8_t pin, uint8_t mode)
 {
-	if ( (mode != INPUT && mode != OUTPUT) || pin > E2 )
+	if ( (mode != INPUT && mode != OUTPUT) || pin > HIGHER_PIN )
 		return;
 
 	switch (pin)
@@ -78,7 +74,7 @@ void pinMode(uint8_t pin, uint8_t mode);
 
 int digitalRead(uint8_t pin)
 {
-	if (pin > E2)
+	if (pin > HIGHER_PIN)
 		return ARDUIM_ERROR;
 
 	switch (pin)
@@ -122,9 +118,9 @@ int digitalRead(uint8_t pin)
 	}
 }
 
-void digitalWrite(uint8_t pin, uint8_t level);
+void digitalWrite(uint8_t pin, uint8_t level)
 {
-	if ( (level != HIGH && level != LOW) || pin > E2 )
+	if ( (level != HIGH && level != LOW) || pin > HIGHER_PIN )
 		return;
 
 	switch (pin)
@@ -179,11 +175,12 @@ int analogRead(uint8_t channel);
 
 int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 {
-        
+	return round( ( ((float) value - fromLow) / (fromHigh - fromLow) ) *
+		(toHigh - toLow) + toLow );
 }
 
-void delay(unsigned long time);
+void delay_(unsigned long time);
 {
-	while(time-- > 0)
+	for ( ; time > 0; time--)
 		Delay1KTCYx(12);
 }

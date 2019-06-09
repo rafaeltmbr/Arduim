@@ -42,6 +42,7 @@
 #define E1 28
 #define E2 29
 
+#define HIGHER_PIN E2
 #define LED_BUILTIN E0
 
 #endif // PINS_ARDUIM_H

@@ -1,6 +1,13 @@
 #ifndef ARDUIM_H
 #define ARDUIM_H
 
+#include "pins_arduim.h"
+
+//#include <xc.h>
+#include <p18f4550.h>
+#include <adc.h>
+#include <delays.h>
+
 #define ARDUIM_ERROR -1
 #define LOW  0x0
 #define HIGH 0x1
@@ -30,24 +37,26 @@
 #define degrees(rad) ((rad)*RAD_TO_DEG)
 #define sq(x) ((x)*(x))
 
-void pinMode(uint8_t, uint8_t);
-void digitalWrite(uint8_t, uint8_t);
-int digitalRead(uint8_t);
-int analogRead(uint8_t);
+void pinMode(uint8_t, uint8_t); //done
+void digitalWrite(uint8_t, uint8_t); //done
+int digitalRead(uint8_t); //done
+int analogRead(uint8_t); //done
 void analogWrite(uint8_t, int);
 
 void attachInterrupt(uint8_t, void (*)(void), int mode);
 void detachInterrupt(uint8_t);
 
-void setup(void);
-void loop(void);
+void setup(void); //done
+void loop(void); //done
 
-long map(long, long, long, long, long);
+long map(long, long, long, long, long); //done
 void delay(unsigned long);
 
-#include "pins_arduim.h"
+#ifndef ARDUIM_SOURCE
+#define ARDUIM_SOURCE 1
+#endif // ARDUIM_SOURCE
 
-#ifdef ARDUIM_SOURCE
+#if ARDUIM_SOURCE == 1
 #include "../src/arduim.c"
 #endif // ARDUIM_SOURCE
 
