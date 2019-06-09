@@ -179,8 +179,8 @@ int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 		(toHigh - toLow) + toLow );
 }
 
-void delay_(unsigned long time);
+void delay(unsigned long time);
 {
 	for ( ; time > 0; time--)
-		Delay1KTCYx(12);
+		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000.0 );
 }

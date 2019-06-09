@@ -1,10 +1,15 @@
 #ifndef ARDUIM_H
 #define ARDUIM_H
 
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 48000000
+#endif //_XTAL_FREQ
+
 #include "pins_arduim.h"
 #include <stdint.h>
 
 #ifdef DEBUG
+# include <stdio.h>
 # include "p18f4550.h"
 # include "delays.h"
 # include "adc.h"
