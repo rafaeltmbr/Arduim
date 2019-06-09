@@ -5,6 +5,10 @@
 # define _XTAL_FREQ 48000000
 #endif
 
+#ifndef ARDUIM_SOURCE
+# define ARDUIM_SOURCE 1
+#endif
+
 #if ARDUIM_SOURCE == 1
 # ifndef DELAYS_SOURCE
 #  define DELAYS_SOURCE 1

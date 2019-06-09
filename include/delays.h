@@ -13,9 +13,8 @@ void Delay100TCYx(unsigned long);
 void Delay1KTCYx(unsigned long);
 void Delay10KTCYx(unsigned long);
 
-
 #if DELAYS_SOURCE == 1
-# include "../src/delays.h"
+# include "../src/delays.c"
 #endif
 
 #endif //DELAYS_H
