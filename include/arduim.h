@@ -2,8 +2,17 @@
 #define ARDUIM_H
 
 #ifndef _XTAL_FREQ
-#define _XTAL_FREQ 48000000
-#endif //_XTAL_FREQ
+# define _XTAL_FREQ 48000000
+#endif
+
+#if ARDUIM_SOURCE == 1
+# ifndef DELAYS_SOURCE
+#  define DELAYS_SOURCE 1
+# endif
+# ifndef ADC_SOURCE
+#  define ADC_SOURCE 1
+# endif
+#endif
 
 #include "pins_arduim.h"
 #include <stdint.h>
@@ -37,7 +46,7 @@
 
 // undefine stdlib's abs if encountered
 #ifdef abs
-#undef abs //math.h
+# undef abs //math.h
 #endif
 
 #define min(a,b) ((a)<(b)?(a):(b))
@@ -64,12 +73,8 @@ void loop(void); //done
 long map(long, long, long, long, long); //done
 void delay(unsigned long);
 
-#ifndef ARDUIM_SOURCE
-#define ARDUIM_SOURCE 1
-#endif
-
 #if ARDUIM_SOURCE == 1
-#include "../src/arduim.c"
+# include "../src/arduim.c"
 #endif
 
 #endif // ARDUIM_H

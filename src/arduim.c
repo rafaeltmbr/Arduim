@@ -98,6 +98,8 @@ int digitalRead(uint8_t pin)
 		case C0: return PORTCbits.RC0;
 		case C1: return PORTCbits.RC1;
 		case C2: return PORTCbits.RC2;
+		case C4: return PORTCbits.RC4;
+		case C5: return PORTCbits.RC5;
 		case C6: return PORTCbits.RC6;
 		case C7: return PORTCbits.RC7;
 
@@ -144,6 +146,8 @@ void digitalWrite(uint8_t pin, uint8_t level)
 		case C0: PORTCbits.RC0 = level; break;
 		case C1: PORTCbits.RC1 = level; break;
 		case C2: PORTCbits.RC2 = level; break;
+		case C4: PORTCbits.RC4 = level; break;
+		case C5: PORTCbits.RC5 = level; break;
 		case C6: PORTCbits.RC6 = level; break;
 		case C7: PORTCbits.RC7 = level; break;
 

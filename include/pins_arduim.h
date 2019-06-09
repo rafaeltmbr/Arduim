@@ -24,23 +24,25 @@
 #define C0 14
 #define C1 15
 #define C2 16
-#define C6 17
-#define C7 18
+#define C4 17
+#define C5 18
+#define C6 19
+#define C7 20
 
 // Port D mapping
-#define D0 19
-#define D1 20
-#define D2 21
-#define D3 22
-#define D4 23
-#define D5 24
-#define D6 25
-#define D7 26
+#define D0 21
+#define D1 22
+#define D2 23
+#define D3 24
+#define D4 25
+#define D5 26
+#define D6 27
+#define D7 28
 
 // Port E mapping
-#define E0 27
-#define E1 28
-#define E2 29
+#define E0 29
+#define E1 30
+#define E2 31
 
 #define HIGHER_PIN E2
 #define LED_BUILTIN E0
