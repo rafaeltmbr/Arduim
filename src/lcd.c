@@ -24,7 +24,7 @@ void lcd_init()
 	Delay1KTCYx(30);
 }
 
-void lcd_cmd(char cmd)
+void lcd_cmd(uint8_t cmd)
 {
 	LCD_RS = 0; 	// Comando
 	LCD_DB = cmd;
@@ -33,7 +33,7 @@ void lcd_cmd(char cmd)
 	LCD_EN = 0;
 }
 
-void lcd_data(char data)
+void lcd_data(uint8_t data)
 {
 	LCD_RS = 1; 	// Dado
 	LCD_DB = data;
@@ -50,11 +50,11 @@ void lcd_print(const char* s)
 
 void lcd_clear(void)
 {
-	lcd_cmd(0b00000001); 	// Limpa o display
+	lcd_cmd(0x01);
 	Delay1KTCYx(30);
 };
 
-void lcd_set_cursor(char line, char column)
+void lcd_set_cursor(uint8_t line, uint8_t column)
 {
 	line = (line == 0) ? 0x80 : 0xC0;
 	column &= 0x0F;

@@ -54,10 +54,10 @@ void delay(unsigned long);
 
 #ifndef ARDUIM_SOURCE
 #define ARDUIM_SOURCE 1
-#endif // ARDUIM_SOURCE
+#endif
 
 #if ARDUIM_SOURCE == 1
 #include "../src/arduim.c"
-#endif // ARDUIM_SOURCE
+#endif
 
 #endif // ARDUIM_H
