@@ -33,40 +33,40 @@ void pinMode(uint8_t pin, uint8_t mode)
 
 	switch (pin)
 	{
-		case A0: TRISAbits.RA0 = mode; break;
-		case A1: TRISAbits.RA1 = mode; break;
-		case A2: TRISAbits.RA2 = mode; break;
-		case A3: TRISAbits.RA3 = mode; break;
-		case A4: TRISAbits.RA4 = mode; break;
-		case A5: TRISAbits.RA5 = mode; break;
+		case A0: TRISAbits.TRISA0 = mode; break;
+		case A1: TRISAbits.TRISA1 = mode; break;
+		case A2: TRISAbits.TRISA2 = mode; break;
+		case A3: TRISAbits.TRISA3 = mode; break;
+		case A4: TRISAbits.TRISA4 = mode; break;
+		case A5: TRISAbits.TRISA5 = mode; break;
 
-		case B0: TRISBbits.RB0 = mode; break;
-		case B1: TRISBbits.RB1 = mode; break;
-		case B2: TRISBbits.RB2 = mode; break;
-		case B3: TRISBbits.RB3 = mode; break;
-		case B4: TRISBbits.RB4 = mode; break;
-		case B5: TRISBbits.RB5 = mode; break;
-		case B6: TRISBbits.RB6 = mode; break;
-		case B7: TRISBbits.RB7 = mode; break;
+		case B0: TRISBbits.TRISB0 = mode; break;
+		case B1: TRISBbits.TRISB1 = mode; break;
+		case B2: TRISBbits.TRISB2 = mode; break;
+		case B3: TRISBbits.TRISB3 = mode; break;
+		case B4: TRISBbits.TRISB4 = mode; break;
+		case B5: TRISBbits.TRISB5 = mode; break;
+		case B6: TRISBbits.TRISB6 = mode; break;
+		case B7: TRISBbits.TRISB7 = mode; break;
 
-		case C0: TRISCbits.RC0 = mode; break;
-		case C1: TRISCbits.RC1 = mode; break;
-		case C2: TRISCbits.RC2 = mode; break;
-		case C6: TRISCbits.RC6 = mode; break;
-		case C7: TRISCbits.RC7 = mode; break;
+		case C0: TRISCbits.TRISC0 = mode; break;
+		case C1: TRISCbits.TRISC1 = mode; break;
+		case C2: TRISCbits.TRISC2 = mode; break;
+		case C6: TRISCbits.TRISC6 = mode; break;
+		case C7: TRISCbits.TRISC7 = mode; break;
 
-		case D0: TRISDbits.RD0 = mode; break;
-		case D1: TRISDbits.RD1 = mode; break;
-		case D2: TRISDbits.RD2 = mode; break;
-		case D3: TRISDbits.RD3 = mode; break;
-		case D4: TRISDbits.RD4 = mode; break;
-		case D5: TRISDbits.RD5 = mode; break;
-		case D6: TRISDbits.RD6 = mode; break;
-		case D7: TRISDbits.RD7 = mode; break;
+		case D0: TRISDbits.TRISD0 = mode; break;
+		case D1: TRISDbits.TRISD1 = mode; break;
+		case D2: TRISDbits.TRISD2 = mode; break;
+		case D3: TRISDbits.TRISD3 = mode; break;
+		case D4: TRISDbits.TRISD4 = mode; break;
+		case D5: TRISDbits.TRISD5 = mode; break;
+		case D6: TRISDbits.TRISD6 = mode; break;
+		case D7: TRISDbits.TRISD7 = mode; break;
 
-		case E0: TRISEbits.RE0 = mode; break;
-		case E1: TRISEbits.RE1 = mode; break;
-		case E2: TRISEbits.RE2 = mode; break;
+		case E0: TRISEbits.TRISE0 = mode; break;
+		case E1: TRISEbits.TRISE1 = mode; break;
+		case E2: TRISEbits.TRISE2 = mode; break;
 
 		default: break;
 	}

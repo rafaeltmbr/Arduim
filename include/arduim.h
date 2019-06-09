@@ -37,7 +37,7 @@
 
 // undefine stdlib's abs if encountered
 #ifdef abs
-#undef abs
+#undef abs //math.h
 #endif
 
 #define min(a,b) ((a)<(b)?(a):(b))
