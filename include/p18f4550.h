@@ -95,5 +95,7 @@ struct {
     unsigned TRISE2 : 1;
 } TRISEbits;
 
+uint8_t TRISA, TRISB, TRISC, TRISD, TRISE;
+uint8_t PORTA, PORTB, PORTC, PORTD, PORTE;
 
 #endif // P18F4450_H

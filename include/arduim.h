@@ -1,6 +1,16 @@
 #ifndef ARDUIM_H
 #define ARDUIM_H
 
+// Default config
+#pragma config PLLDIV = 5
+#pragma config USBDIV = 2
+#pragma config VREGEN = ON
+#pragma config FOSC = HSPLL_HS
+#pragma config WDT = OFF
+#pragma config PBADEN = OFF
+#pragma config LVP = OFF
+#pragma config WRTB = ON
+
 #ifndef _XTAL_FREQ
 # define _XTAL_FREQ 48000000
 #endif
