@@ -36,7 +36,7 @@
 #endif // ARDUIM_SOURCE
 
 #include "../include/pins_arduim.h"
-//#include <stdint.h>
+#include <stdint.h>
 
 //#include <xc.h>
 #include <p18f4550.h>

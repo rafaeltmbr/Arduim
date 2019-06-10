@@ -1,10 +1,5 @@
 #include "../include/arduim.h"
 
-#ifndef __UINT8_T__
-#define __UINT8_T__
-typedef unsigned char uint8_t;
-#endif
-
 #define MAX_DELAY 1000
 #define PWM_LED 1
 #define POTEN AA0
