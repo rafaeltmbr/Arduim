@@ -20,25 +20,29 @@
 #endif
 
 #if ARDUIM_SOURCE == 1
-# ifndef DELAYS_SOURCE
-#  define DELAYS_SOURCE 1
-# endif
-# ifndef ADC_SOURCE
-#  define ADC_SOURCE 1
-# endif
-# ifndef PWM_SOURCE
-# define PWM_SOURCE 1
-# endif
+
+#ifndef DELAYS_SOURCE
+# define DELAYS_SOURCE 1
 #endif
+
+#ifndef ADC_SOURCE
+# define ADC_SOURCE 1
+#endif
+
+#ifndef PWM_SOURCE
+# define PWM_SOURCE 1
+#endif
+
+#endif // ARDUIM_SOURCE
 
 #include "pins_arduim.h"
 #include <stdint.h>
 
-# include <xc.h>
-# include <p18f4550.h>
-# include <delays.h>
-# include <adc.h>
-# include <pwm.h>
+#include <xc.h>
+#include <p18f4550.h>
+#include <delays.h>
+#include <adc.h>
+#include <pwm.h>
 
 #define ARDUIM_ERROR -1
 #define LOW  0x0

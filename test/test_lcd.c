@@ -1,5 +1,3 @@
-// when debugging build with: gcc test2.c -Wall -g -std=c99 -o test2.exe
-#define DEBUG_CONSOLE
 #include "../include/arduim.h"
 #include "../include/lcd.h"
 
@@ -13,7 +11,7 @@ void setup()
     lcd.setCursor(0, 0);
     lcd.prints("  Debugging LCD ");
     lcd.setCursor(0, 1);
-    lcd.prints("  file: test2.c ");
+    lcd.prints("file: test_lcd.c");
     delay(1000);
 }
 
@@ -21,7 +19,9 @@ void loop()
 {
     static uint16_t count = 0;
     lcd.clear();
-    lcd.setCursor(0, 0);
+    lcd.setCursor(0, 5);
+    lcd.prints("lcd.h");
+    lcd.setCursor(0, 3);
     lcd.prints("count: ");
     lcd.printi(count++);
     delay(500);

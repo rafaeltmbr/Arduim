@@ -1,4 +1,3 @@
-// when debugging build with: gcc test1.c -Wall -g -std=c99 -o test1.exe
 #include "../include/arduim.h"
 
 #define MAX_DELAY 1000

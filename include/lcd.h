@@ -4,15 +4,9 @@
 #include <stdint.h>
 #include "../include/arduim.h"
 
-#ifdef DEBUG_CONSOLE
-# include <stdio.h>
-# include "p18f4550.h"
-# include "delays.h"
-#else
 # include <xc.h>
 # include <p18f4550.h>
 # include <delays.h>
-#endif
 
 //  LCD DATA PORT
 #define LCD_PORTA  0x00
