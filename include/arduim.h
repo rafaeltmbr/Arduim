@@ -2,23 +2,21 @@
 #define ARDUIM_H
 
 // Default config
-#ifndef DEBUG_CONSOLE
-# pragma config PLLDIV = 5
-# pragma config USBDIV = 2
-# pragma config VREGEN = ON
-# pragma config FOSC = HSPLL_HS
-# pragma config WDT = OFF
-# pragma config PBADEN = OFF
-# pragma config LVP = OFF
-# pragma config WRTB = ON
-#endif
+#pragma config PLLDIV = 5
+#pragma config USBDIV = 2
+#pragma config VREGEN = ON
+#pragma config FOSC = HSPLL_HS
+#pragma config WDT = OFF
+#pragma config PBADEN = OFF
+#pragma config LVP = OFF
+#pragma config WRTB = ON
 
 #ifndef _XTAL_FREQ
-# define _XTAL_FREQ 48000000
+#define _XTAL_FREQ 48000000
 #endif
 
 #ifndef ARDUIM_SOURCE
-# define ARDUIM_SOURCE 1
+#define ARDUIM_SOURCE 1
 #endif
 
 #if ARDUIM_SOURCE == 1
@@ -36,21 +34,11 @@
 #include "pins_arduim.h"
 #include <stdint.h>
 
-#ifdef DEBUG_CONSOLE
-# include <stdio.h>
-# include <stdlib.h>
-# include <time.h>
-# include "p18f4550.h"
-# include "delays.h"
-# include "adc.h"
-# include "pwm.h"
-#else
 # include <xc.h>
 # include <p18f4550.h>
 # include <delays.h>
 # include <adc.h>
 # include <pwm.h>
-#endif
 
 #define ARDUIM_ERROR -1
 #define LOW  0x0
@@ -67,19 +55,37 @@
 #define RAD_TO_DEG 57.295779513082320876798154814105
 #define EULER 2.718281828459045235360287471352
 
-// undefine stdlib's abs if encountered
-#ifdef abs
-# undef abs //math.h
+#ifndef min
+# define min(a,b) ((a)<(b)?(a):(b))
 #endif
 
-#define min(a,b) ((a)<(b)?(a):(b))
-#define max(a,b) ((a)>(b)?(a):(b))
-#define abs(x) ((x)>0?(x):-(x))
-#define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
-#define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
-#define radians(deg) ((deg)*DEG_TO_RAD)
-#define degrees(rad) ((rad)*RAD_TO_DEG)
-#define sq(x) ((x)*(x))
+#ifndef max
+# define max(a,b) ((a)>(b)?(a):(b))
+#endif
+
+#ifndef abs
+# define abs(x) ((x)>0?(x):-(x))
+#endif
+
+#ifndef constrain
+# define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+#endif 
+
+#ifndef round
+# define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
+#endif
+
+#ifndef radians
+# define radians(deg) ((deg)*DEG_TO_RAD)
+#endif
+
+#ifndef degrees
+# define degrees(rad) ((rad)*RAD_TO_DEG)
+#endif
+
+#ifndef sq
+# define sq(x) ((x)*(x))
+#endif
 
 void pinMode(uint8_t, uint8_t);
 void digitalWrite(uint8_t, uint8_t);

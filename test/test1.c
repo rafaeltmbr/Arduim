@@ -1,13 +1,7 @@
 // when debugging build with: gcc test1.c -Wall -g -std=c99 -o test1.exe
-#define DEBUG_CONSOLE
 #include "../include/arduim.h"
 
-#ifdef DEBUG_CONSOLE
-# define MAX_DELAY 5000
-#else
-# define MAX_DELAY 500
-#endif
-
+#define MAX_DELAY 1000
 #define PWM_LED 1
 #define POTEN A0
 
