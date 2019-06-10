@@ -18,11 +18,11 @@ static void init()
 	);
 }
 
-void main(void)
+int main(void)
 {
 	init();
 	setup();
-	for(;;)
+	for( ; ; )
 		loop();
 }
 
@@ -177,7 +177,14 @@ int analogRead(uint8_t channel)
 	return ReadADC();
 }
 
-int map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
+void analogWrite(uint8_t pin, int value)
+{
+	OpenPWM1(0xff);
+	SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
+	SetDCPWM1(value);
+}
+
+long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 {
 	return round( ( ((float) value - fromLow) / (fromHigh - fromLow) ) *
 		(toHigh - toLow) + toLow );

@@ -16,6 +16,9 @@
 # ifndef ADC_SOURCE
 #  define ADC_SOURCE 1
 # endif
+# ifndef PWM_SOURCE
+# define PWM_SOURCE 1
+# endif
 #endif
 
 #include "pins_arduim.h"
@@ -26,11 +29,13 @@
 # include "p18f4550.h"
 # include "delays.h"
 # include "adc.h"
+# include "pwm.h"
 #else
 # include <xc.h>
 # include <p18f4550.h>
 # include <delays.h>
 # include <adc.h>
+# include <pwm.h>
 #endif
 
 #define ARDUIM_ERROR -1

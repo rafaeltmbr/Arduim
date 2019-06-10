@@ -1,3 +1,4 @@
+// when debugging build with: gcc test1.c -Wall -g -std=c11 -o test.exe
 #define DEBUG
 #include "../include/arduim.h"
 
@@ -17,7 +18,7 @@ void loop()
     digitalWrite(LED_BUILTIN, !led);
     
     int pwm = analogRead(POTEN)/4;
-//    analogWrite(PWM_LED, pwm);
+    analogWrite(PWM_LED, pwm);
     
     int time =  map(analogRead(POTEN), 0, 1023, 0, 500);
     delay(time);

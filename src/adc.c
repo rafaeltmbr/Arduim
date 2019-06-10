@@ -2,7 +2,7 @@
 
 char BusyADC (void)
 {
-
+    return 0;
 }
 
 void CloseADC(void)
@@ -22,7 +22,7 @@ void OpenADC(unsigned char config, unsigned char config2 , unsigned char portcon
 
 int ReadADC(void)
 {
-
+    return 0;
 }
 
 void SetChanADC( unsigned char channel )
