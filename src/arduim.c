@@ -60,8 +60,6 @@ void pinMode(uint8_t pin, uint8_t mode)
 		case E0: TRISEbits.TRISE0 = mode; break;
 		case E1: TRISEbits.TRISE1 = mode; break;
 		case E2: TRISEbits.TRISE2 = mode; break;
-
-		default: break;
 	}
 }
 
@@ -156,8 +154,6 @@ void digitalWrite(uint8_t pin, uint8_t level)
 		case E0: PORTEbits.RE0 = level; break;
 		case E1: PORTEbits.RE1 = level; break;
 		case E2: PORTEbits.RE2 = level; break;
-
-		default: break;
 	}
 }
 
