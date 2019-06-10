@@ -3,10 +3,9 @@
 
 #include <stdint.h>
 #include "../include/arduim.h"
-
-# include <xc.h>
-# include <p18f4550.h>
-# include <delays.h>
+#include <xc.h>
+#include <pic18f4550.h>
+#include <delays.h>
 
 //  LCD DATA PORT
 #define LCD_PORTA  0x00
