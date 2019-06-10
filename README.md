@@ -8,7 +8,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - [analogRead](src/arduim.c "source file") - read from a analog input pin (ADC)
   - [analogWrite](src/arduim.c "source file") - write to a analog output pin (PWM)
   - [delay](src/arduim.c "source file") - wait for a period of time
-  - [map](src/arduim.c#254 "source file") - convert a number from a given range to another
+  - [map](https://github.com/rafaeltmbr/Arduim/blob/442623a7e0893f3a1807250b0f704c4fda4b9c6c/src/arduim.c#L254 "source file") - convert a number from a given range to another
   
 ### [lcd.h](include/lcd.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
 - Currently implemented functions:
