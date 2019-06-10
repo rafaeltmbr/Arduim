@@ -2,7 +2,7 @@
 
 #define MAX_DELAY 1000
 #define PWM_LED 1
-#define POTEN A0
+#define POTEN AA0
 
 void setup()
 {
