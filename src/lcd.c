@@ -85,13 +85,6 @@ void lcd_data(uint8_t data)
 
 void lcd_print(const char* s)
 {
-
-#ifdef DEBUG_CONSOLE
-
-	printf("LCD >> %s\n", s);
-
-#endif
-
 	for (; *s; s++)
 		lcd_data(*s);
 }
