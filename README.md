@@ -15,7 +15,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - [lcd_get](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L10 "source file") - get a lcd_t struct
   - [lcd_select](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L5 "source file") - select a lcd_t struct
   
-- Currently impemented methods:
+- Currently implemented methods:
   - [.clear](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L120 "source file") - clears the display
   - [.setPosition](https://github.com/rafaeltmbr/Arduim/blob/9a7bf552efdce364c79f2a785171cffdf6b1f732/src/lcd.c#L126 "source file") - set the cursor to a given position
   - [.prints](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L86 "source file") - prints a given string to the lcd
