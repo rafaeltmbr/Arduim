@@ -1,4 +1,4 @@
-// when debugging build with: gcc test1.c -Wall -g -std=c11 -o test1.exe
+// when debugging build with: gcc test1.c -Wall -g -std=c99 -o test1.exe
 #define DEBUG_CONSOLE
 #include "../include/arduim.h"
 

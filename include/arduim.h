@@ -2,14 +2,16 @@
 #define ARDUIM_H
 
 // Default config
-#pragma config PLLDIV = 5
-#pragma config USBDIV = 2
-#pragma config VREGEN = ON
-#pragma config FOSC = HSPLL_HS
-#pragma config WDT = OFF
-#pragma config PBADEN = OFF
-#pragma config LVP = OFF
-#pragma config WRTB = ON
+#ifndef DEBUG_CONSOLE
+# pragma config PLLDIV = 5
+# pragma config USBDIV = 2
+# pragma config VREGEN = ON
+# pragma config FOSC = HSPLL_HS
+# pragma config WDT = OFF
+# pragma config PBADEN = OFF
+# pragma config LVP = OFF
+# pragma config WRTB = ON
+#endif
 
 #ifndef _XTAL_FREQ
 # define _XTAL_FREQ 48000000
@@ -79,19 +81,19 @@
 #define degrees(rad) ((rad)*RAD_TO_DEG)
 #define sq(x) ((x)*(x))
 
-void pinMode(uint8_t, uint8_t); //done
-void digitalWrite(uint8_t, uint8_t); //done
-int digitalRead(uint8_t); //done
-int analogRead(uint8_t); //done
+void pinMode(uint8_t, uint8_t);
+void digitalWrite(uint8_t, uint8_t);
+int digitalRead(uint8_t);
+int analogRead(uint8_t);
 void analogWrite(uint8_t, int);
 
 void attachInterrupt(uint8_t, void (*)(void), int mode);
 void detachInterrupt(uint8_t);
 
-void setup(void); //done
-void loop(void); //done
+void setup(void);
+void loop(void);
 
-long map(long, long, long, long, long); //done
+long map(long, long, long, long, long);
 void delay(unsigned long);
 
 #if ARDUIM_SOURCE == 1
