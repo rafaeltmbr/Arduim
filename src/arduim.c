@@ -206,7 +206,7 @@ int analogRead(uint8_t channel)
 
 #endif
 
-	uint8_t channel_flag = getChannelADC(channel);
+	int channel_flag = getChannelADC(channel);
 	if (channel_flag == ARDUIM_ERROR)
 		return 0;
 
