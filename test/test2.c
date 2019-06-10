@@ -20,6 +20,9 @@ void setup()
 void loop()
 {
     static uint16_t count = 0;
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.prints("count: ");
     lcd.printi(count++);
     delay(500);
 }
