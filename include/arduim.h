@@ -26,6 +26,8 @@
 
 #ifdef DEBUG
 # include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
 # include "p18f4550.h"
 # include "delays.h"
 # include "adc.h"

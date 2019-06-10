@@ -23,7 +23,16 @@ int main(void)
 	init();
 	setup();
 	for( ; ; )
+	{
+
+#ifdef DEBUG
+		static unsigned long loop_count = 1;
+    	printf("\n\n===================== loop %ld ===================== \n", loop_count);
+		loop_count++;
+#endif
+
 		loop();
+	}
 }
 
 void pinMode(uint8_t pin, uint8_t mode)
@@ -125,6 +134,12 @@ void digitalWrite(uint8_t pin, uint8_t level)
 	if ( (level != HIGH && level != LOW) || pin > HIGHER_PIN )
 		return;
 
+#ifdef DEBUG
+
+	printf("digital pin %d = %d\n", pin, level);
+
+#endif
+
 	switch (pin)
 	{
 		case A0: PORTAbits.RA0 = level; break;
@@ -170,6 +185,19 @@ void digitalWrite(uint8_t pin, uint8_t level)
 
 int analogRead(uint8_t channel)
 {
+
+#ifdef DEBUG
+
+	static uint8_t start_debug = 1;
+	if (start_debug)
+	{
+		srand(time(NULL));
+		start_debug = 0;
+	}
+	return rand() % 1024;
+
+#endif	
+
 	SetChanADC(channel); //select channel
 	ConvertADC();		 //start convertion
 	while(BusyADC()) 	 //wait convertion ends
@@ -184,6 +212,13 @@ void analogWrite(uint8_t pin, int value)
 	OpenPWM1(0xff);
 	SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
 	SetDCPWM1(value);
+
+#ifdef DEBUG
+
+	printf("analog pin %d = %d\n", pin, value);
+	
+#endif
+
 }
 
 long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
@@ -194,6 +229,13 @@ long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 
 void delay(unsigned long time)
 {
+	
+#ifdef DEBUG
+
+	printf("delay %ld ms\n", time);
+
+#endif
+
 	for ( ; time > 0; time--)
-		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000.0 );
+		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000000.0 );
 }
