@@ -279,16 +279,16 @@ static uint8_t getChannelADC(uint8_t pin)
 {
     switch (pin)
     {
-        case AN0:  return ADC_CH0;
-        case AN1:  return ADC_CH1;
-        case AN2:  return ADC_CH2;
-        case AN3:  return ADC_CH3;
-        case AN4:  return ADC_CH4;
-        case AN8:  return ADC_CH8;
-        case AN9:  return ADC_CH9;
-        case AN10: return ADC_CH10;
-        case AN11: return ADC_CH11;
-        case AN12: return ADC_CH12;
+        case AA0:  return ADC_CH0;
+        case AA1:  return ADC_CH1;
+        case AA2:  return ADC_CH2;
+        case AA3:  return ADC_CH3;
+        case AA4:  return ADC_CH4;
+        case AA8:  return ADC_CH8;
+        case AA9:  return ADC_CH9;
+        case AA10: return ADC_CH10;
+        case AA11: return ADC_CH11;
+        case AA12: return ADC_CH12;
 		default:   return ARDUIM_ERROR;
     }
 }
@@ -297,16 +297,16 @@ static uint8_t getRangeChannelsADC(uint8_t pin)
 {
     switch (pin)
     {
-        case AN0:  return ADC_1ANA;
-        case AN1:  return ADC_2ANA;
-        case AN2:  return ADC_3ANA;
-        case AN3:  return ADC_4ANA;
-        case AN4:  return ADC_5ANA;
-        case AN8:  return ADC_9ANA;
-        case AN9:  return ADC_10ANA;
-        case AN10: return ADC_11ANA;
-        case AN11: return ADC_12ANA;
-        case AN12: return ADC_13ANA;
+        case AA0:  return ADC_1ANA;
+        case AA1:  return ADC_2ANA;
+        case AA2:  return ADC_3ANA;
+        case AA3:  return ADC_4ANA;
+        case AA4:  return ADC_5ANA;
+        case AA8:  return ADC_9ANA;
+        case AA9:  return ADC_10ANA;
+        case AA10: return ADC_11ANA;
+        case AA11: return ADC_12ANA;
+        case AA12: return ADC_13ANA;
 		default:   return ADC_0ANA; 	// No channels are analog
     }
 }
