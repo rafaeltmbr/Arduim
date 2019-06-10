@@ -13,8 +13,13 @@ static void init()
 
 int main(void)
 {
+#ifdef DEBUG_CONSOLE
+	
 	printf("\n##################### DEBUG CONSOLE #####################\n"
 		   "\n--------------------- setup ---------------------\n");
+	
+#endif
+	
 	init();
 	setup();
 	for( ; ; )
