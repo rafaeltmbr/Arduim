@@ -248,11 +248,11 @@ void analogWrite(uint8_t pin, int value)
 			SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
 			SetDCPWM1(value);
 			break;
-		case PWM2:
-			OpenPWM2(0xff);
-			SetOutputPWM2(SINGLE_OUT, PWM_MODE_1);
-			SetDCPWM2(value);
-			break;
+//		case PWM2:
+//			OpenPWM2(0xff);
+//			SetOutputPWM2(SINGLE_OUT, PWM_MODE_1);
+//			SetDCPWM2(value);
+//			break;
 	}
 }
 
@@ -272,7 +272,7 @@ void delay(unsigned long time)
 #endif
 
 	for ( ; time > 0; time--)
-		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000000.0 );
+		Delay1KTCYx( (unsigned long) ((_XTAL_FREQ /4.0) /1000000.0 ));
 }
 
 static uint8_t getChannelADC(uint8_t pin)
