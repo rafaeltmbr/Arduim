@@ -1,7 +1,5 @@
 # Arduim
-Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.br/sccs2012/material-pic/Manual%20KIT%20PIC18F4550.pdf?attredirects=0&d=1 "Manual.pdf").
-Current support:
-
+Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.br/sccs2012/material-pic/Manual%20KIT%20PIC18F4550.pdf?attredirects=0&d=1 "Manual.pdf"). Available functions:
 * [arduim.h](include/arduim.h "header file") - Equivalent to Arduino.h header. Current support:
   - [pinMode](src/arduim.c "source file")
   - [digitalRead](src/arduim.c "source file")
