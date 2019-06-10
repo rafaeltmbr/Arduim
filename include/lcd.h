@@ -43,9 +43,9 @@ void lcd_cmd(uint8_t cmd);      //send a instruction
 void lcd_data(uint8_t data);    //print a character
 void lcd_number(int number);    //print a number in 4 digits format
 void lcd_print(const char* s);  //print a string
-void lcd_printl(const long);    //print a string
-void lcd_printi(const int);     //print a string
-void lcd_printc(const char);       //print a string
+void lcd_printl(const long);    //print a long integer
+void lcd_printi(const int);     //print an interger
+void lcd_printc(const char);    //print a character
 void lcd_clear(void);           //clear the display
 void lcd_set_cursor(uint8_t line, uint8_t column); //position the cursor
 
