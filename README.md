@@ -17,7 +17,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   
 - Currently impemented methods:
   - [.clear](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L120 "source file") - clears the display
-  - [.setPosition](src/lcd.c "source file") - set the cursor to a given position
+  - [.setPosition](https://github.com/rafaeltmbr/Arduim/blob/9a7bf552efdce364c79f2a785171cffdf6b1f732/src/lcd.c#L126 "source file") - set the cursor to a given position
   - [.prints](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L86 "source file") - prints a given string to the lcd
   - [.printl](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L99 "source file") - prints a given long integer to the lcd
   - [.printi](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L106 "source file") - prints a given integer to the lcd
