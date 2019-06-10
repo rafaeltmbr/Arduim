@@ -179,6 +179,8 @@ int analogRead(uint8_t channel)
 
 void analogWrite(uint8_t pin, int value)
 {
+	// TODO:
+	// implement pwm for all possible pins
 	OpenPWM1(0xff);
 	SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
 	SetDCPWM1(value);
