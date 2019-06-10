@@ -1,7 +1,7 @@
 #ifndef ARDUIM_H
 #define ARDUIM_H
 
-// Default config
+// Default config (Don't you dare change it)
 #pragma config PLLDIV = 5
 #pragma config USBDIV = 2
 #pragma config VREGEN = ON
