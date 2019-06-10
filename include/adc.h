@@ -52,8 +52,24 @@
 #define ADC_REF_VDD_VSS 0x00     // Vref+ = Vcc and Vref- = Vss
 
 //                  OpenADC portconfig:
-#define ADC_5ANA 0x00    // enable analog AN0, enable digital AN1 to AN5
-
+#define ADC_0ANA    0x00   // No channels are selected as analog
+#define ADC_1ANA    0x00   // Select analog channel AN0
+#define ADC_2ANA    0x00   // Select analog channels from AN0 to AN1
+#define ADC_3ANA    0x00   // Select analog channels from AN0 to AN2
+#define ADC_4ANA    0x00   // Select analog channels from AN0 to AN3
+#define ADC_5ANA    0x00   // Select analog channels from AN0 to AN4
+#define ADC_6ANA    0x00   // Select analog channels from AN0 to AN5
+#define ADC_7ANA    0x00   // Select analog channels from AN0 to AN6
+#define ADC_8ANA    0x00   // Select analog channels from AN0 to AN7
+#define ADC_9ANA    0x00   // Select analog channels from AN0 to AN8
+#define ADC_10ANA   0x00   // Select analog channels from AN0 to AN9
+#define ADC_11ANA   0x00   // Select analog channels from AN0 to AN10
+#ifndef ADC_V12
+# define ADC_12ANA  0x00   // Select analog channels from AN0 to AN11
+# define ADC_13ANA  0x00   // Select analog channels from AN0 to AN12
+# define ADC_14ANA  0x00   // Select analog channels from AN0 to AN13
+# define ADC_15ANA  0x00   // All channels are selected as analog
+#endif
 
 char BusyADC (void); // Is A/D converter currently performing a conversion?
 void CloseADC(void); // Disable the A/D converter.

@@ -3,32 +3,29 @@
 //void interrupt my_isr_high(void);
 //void interrupt low_priority my_isr_low(void);
 
+static uint8_t getChannelADC(uint8_t); // map pin to ADC channel
+static uint8_t getRangeChannelsADC(uint8_t); // select a channels range
+
 static void init()
 {
-	OpenADC(
-		ADC_FOSC_16 // Fosc=20MHz Fad=20MHz/16 Tad = 0,8us
-		& ADC_RIGHT_JUST // Resultado justificado a direita
-		& ADC_4_TAD, // Configuração do tempo automático (4*Tad=3,2us)
 
-		ADC_INT_OFF // Interrupção desabilitada
-		& ADC_REF_VDD_VSS // Vref+ = Vcc (5V) e Vref- = Vss
-		& ADC_CH4, // Seleciona canal 0
-
-		ADC_5ANA // Habilita entrada analógica AN0, digital AN1 a AN15
-	);
 }
 
 int main(void)
 {
+	printf("\n##################### DEBUG CONSOLE #####################\n"
+		   "\n--------------------- setup ---------------------\n");
 	init();
 	setup();
 	for( ; ; )
 	{
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
+
 		static unsigned long loop_count = 1;
-    	printf("\n\n===================== loop %ld ===================== \n", loop_count);
+    	printf("\n\n--------------------- loop %ld --------------------- \n", loop_count);
 		loop_count++;
+		
 #endif
 
 		loop();
@@ -39,6 +36,12 @@ void pinMode(uint8_t pin, uint8_t mode)
 {
 	if ( (mode != INPUT && mode != OUTPUT) || pin > HIGHER_PIN )
 		return;
+
+#ifdef DEBUG_CONSOLE
+
+	printf("pin %d = %s\n", pin, mode == INPUT ? "INPUT" : "OUTPUT");
+
+#endif
 
 	switch (pin)
 	{
@@ -134,7 +137,7 @@ void digitalWrite(uint8_t pin, uint8_t level)
 	if ( (level != HIGH && level != LOW) || pin > HIGHER_PIN )
 		return;
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 
 	printf("digital pin %d = %d\n", pin, level);
 
@@ -186,7 +189,7 @@ void digitalWrite(uint8_t pin, uint8_t level)
 int analogRead(uint8_t channel)
 {
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 
 	static uint8_t start_debug = 1;
 	if (start_debug)
@@ -196,29 +199,56 @@ int analogRead(uint8_t channel)
 	}
 	return rand() % 1024;
 
-#endif	
+#endif
 
-	SetChanADC(channel); //select channel
-	ConvertADC();		 //start convertion
-	while(BusyADC()) 	 //wait convertion ends
+	uint8_t channel_flag = getChannelADC(channel);
+	if (channel_flag == ARDUIM_ERROR)
+		return 0;
+
+	OpenADC(
+		ADC_FOSC_16			// Tad = Fosc / 16
+		& ADC_RIGHT_JUST	// Adjust to lsb
+		& ADC_4_TAD, 		// Acquisition time = 4 * Tad
+
+		ADC_INT_OFF 		// interrupts disabled
+		& ADC_REF_VDD_VSS 	// Vref+ = Vcc (5V) e Vref- = Vss
+		& channel_flag, 	// Select channel
+
+		getRangeChannelsADC(channel) // Select analog channels range
+	);
+
+	SetChanADC( getChannelADC(channel) ); // Select channel input to be read
+	ConvertADC();		 // start convertion
+	while(BusyADC()) 	 // wait convertion ends
 		;
+	CloseADC();			 // disable AD converter
 	return ReadADC();
 }
 
 void analogWrite(uint8_t pin, int value)
 {
-	// TODO:
-	// implement pwm for all possible pins
-	OpenPWM1(0xff);
-	SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
-	SetDCPWM1(value);
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 
 	printf("analog pin %d = %d\n", pin, value);
 	
 #endif
 
+	value <<= 2; // adjust to 10 bits
+
+	switch (pin)
+	{
+		case PWM1:
+			OpenPWM1(0xff);
+			SetOutputPWM1(SINGLE_OUT, PWM_MODE_1);
+			SetDCPWM1(value);
+			break;
+		case PWM2:
+			OpenPWM2(0xff);
+			SetOutputPWM2(SINGLE_OUT, PWM_MODE_1);
+			SetDCPWM2(value);
+			break;
+	}
 }
 
 long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
@@ -230,7 +260,7 @@ long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 void delay(unsigned long time)
 {
 	
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 
 	printf("delay %ld ms\n", time);
 
@@ -238,4 +268,40 @@ void delay(unsigned long time)
 
 	for ( ; time > 0; time--)
 		Delay1KTCYx( (_XTAL_FREQ /4.0) /1000000.0 );
+}
+
+static uint8_t getChannelADC(uint8_t pin)
+{
+    switch (pin)
+    {
+        case AN0:  return ADC_CH0;
+        case AN1:  return ADC_CH1;
+        case AN2:  return ADC_CH2;
+        case AN3:  return ADC_CH3;
+        case AN4:  return ADC_CH4;
+        case AN8:  return ADC_CH8;
+        case AN9:  return ADC_CH9;
+        case AN10: return ADC_CH10;
+        case AN11: return ADC_CH11;
+        case AN12: return ADC_CH12;
+		default:   return ARDUIM_ERROR;
+    }
+}
+
+static uint8_t getRangeChannelsADC(uint8_t pin)
+{
+    switch (pin)
+    {
+        case AN0:  return ADC_1ANA;
+        case AN1:  return ADC_2ANA;
+        case AN2:  return ADC_3ANA;
+        case AN3:  return ADC_4ANA;
+        case AN4:  return ADC_5ANA;
+        case AN8:  return ADC_9ANA;
+        case AN9:  return ADC_10ANA;
+        case AN10: return ADC_11ANA;
+        case AN11: return ADC_12ANA;
+        case AN12: return ADC_13ANA;
+		default:   return ADC_0ANA; 	// No channels are analog
+    }
 }

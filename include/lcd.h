@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 # include "p18f4550.h"
 # include "delays.h"
 #else

@@ -24,7 +24,7 @@
 #include "pins_arduim.h"
 #include <stdint.h>
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>

@@ -1,8 +1,8 @@
 // when debugging build with: gcc test1.c -Wall -g -std=c11 -o test1.exe
-#define DEBUG
+#define DEBUG_CONSOLE
 #include "../include/arduim.h"
 
-#ifdef DEBUG
+#ifdef DEBUG_CONSOLE
 # define MAX_DELAY 5000
 #else
 # define MAX_DELAY 500
