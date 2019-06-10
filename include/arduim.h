@@ -35,10 +35,10 @@
 
 #endif // ARDUIM_SOURCE
 
-#include "pins_arduim.h"
-#include <stdint.h>
+#include "../include/pins_arduim.h"
+//#include <stdint.h>
 
-#include <xc.h>
+//#include <xc.h>
 #include <p18f4550.h>
 #include <delays.h>
 #include <adc.h>
