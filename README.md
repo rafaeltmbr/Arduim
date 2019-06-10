@@ -10,15 +10,15 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - [delay](src/arduim.c "source file") - wait for a period of time
   - [map](src/arduim.c "source file") - map distinct ranges
   
-- [lcd.h](include/lcd.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
-  - Currently implemented functions:
-    - [lcd_get](src/lcd.c "source file") - get a lcd_t struct
-    - [lcd_select](src/lcd.c "source file") - select a lcd_t struct
+### [lcd.h](include/lcd.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
+- Currently implemented functions:
+  - [lcd_get](src/lcd.c "source file") - get a lcd_t struct
+  - [lcd_select](src/lcd.c "source file") - select a lcd_t struct
   
-  - Currently impemented methods:
-    - [.clear](src/lcd.c "source file") - clears the display
-    - [.setPosition](src/lcd.c "source file") - set the cursor to a given position
-    - [.prints](src/lcd.c "source file") - prints a given string to the lcd
-    - [.printl](src/lcd.c "source file") - prints a given long integer to the lcd
-    - [.printi](src/lcd.c "source file") - prints a given integer to the lcd
-    - [.printc](src/lcd.c "source file") - prints a given character to the lcd
+- Currently impemented methods:
+  - [.clear](src/lcd.c "source file") - clears the display
+  - [.setPosition](src/lcd.c "source file") - set the cursor to a given position
+  - [.prints](src/lcd.c "source file") - prints a given string to the lcd
+  - [.printl](src/lcd.c "source file") - prints a given long integer to the lcd
+  - [.printi](src/lcd.c "source file") - prints a given integer to the lcd
+  - [.printc](src/lcd.c "source file") - prints a given character to the lcd
