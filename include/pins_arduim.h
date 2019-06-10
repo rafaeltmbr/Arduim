@@ -48,16 +48,16 @@
 #define LED_BUILTIN E0
 
 // ANALOG PINS
-#define AN0   A0
-#define AN1   A1
-#define AN2   A2
-#define AN3   A3
-#define AN4   A5
-#define AN8   B2
-#define AN9   B3
-#define AN10  B1
-#define AN11  B4
-#define AN12  B0
+#define AA0   A0
+#define AA1   A1
+#define AA2   A2
+#define AA3   A3
+#define AA4   A5
+#define AA8   B2
+#define AA9   B3
+#define AA10  B1
+#define AA11  B4
+#define AA12  B0
 
 // PWM PINS
 #define PWM1  C2
