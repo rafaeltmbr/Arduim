@@ -10,7 +10,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
     - [delay](src/arduim.c "source file") - wait for a period of time
     - [map](src/arduim.c "source file") - map distinct ranges
   
-- [lcd.h](include/arduim.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
+- [lcd.h](include/lcd.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
   - Currently implemented functions:
     - [lcd_get](src/lcd.c "source file") - get a lcd_t struct
     - [lcd_select](src/lcd.c "source file") - select a lcd_t struct
