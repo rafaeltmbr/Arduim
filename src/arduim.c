@@ -12,41 +12,17 @@ static void init()
 }
 
 int main(void)
-{
-#ifdef DEBUG_CONSOLE
-	
-	printf("\n##################### DEBUG CONSOLE #####################\n"
-		   "\n--------------------- setup ---------------------\n");
-	
-#endif
-	
+{	
 	init();
 	setup();
 	for( ; ; )
-	{
-
-#ifdef DEBUG_CONSOLE
-
-		static unsigned long loop_count = 1;
-    	printf("\n\n--------------------- loop %ld --------------------- \n", loop_count);
-		loop_count++;
-		
-#endif
-
 		loop();
-	}
 }
 
 void pinMode(uint8_t pin, uint8_t mode)
 {
 	if ( (mode != INPUT && mode != OUTPUT) || pin > HIGHER_PIN )
 		return;
-
-#ifdef DEBUG_CONSOLE
-
-	printf("pin %d = %s\n", pin, mode == INPUT ? "INPUT" : "OUTPUT");
-
-#endif
 
 	switch (pin)
 	{
@@ -142,12 +118,6 @@ void digitalWrite(uint8_t pin, uint8_t level)
 	if ( (level != HIGH && level != LOW) || pin > HIGHER_PIN )
 		return;
 
-#ifdef DEBUG_CONSOLE
-
-	printf("digital pin %d = %d\n", pin, level);
-
-#endif
-
 	switch (pin)
 	{
 		case A0: PORTAbits.RA0 = level; break;
@@ -193,19 +163,6 @@ void digitalWrite(uint8_t pin, uint8_t level)
 
 int analogRead(uint8_t channel)
 {
-
-#ifdef DEBUG_CONSOLE
-
-	static uint8_t start_debug = 1;
-	if (start_debug)
-	{
-		srand(time(NULL));
-		start_debug = 0;
-	}
-	return rand() % 1024;
-
-#endif
-
 	int channel_flag = getChannelADC(channel);
 	if (channel_flag == ARDUIM_ERROR)
 		return 0;
@@ -232,13 +189,6 @@ int analogRead(uint8_t channel)
 
 void analogWrite(uint8_t pin, int value)
 {
-
-#ifdef DEBUG_CONSOLE
-
-	printf("analog pin %d = %d\n", pin, value);
-	
-#endif
-
 	value <<= 2; // adjust to 10 bits
 
 	switch (pin)
@@ -264,13 +214,6 @@ long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 
 void delay(unsigned long time)
 {
-	
-#ifdef DEBUG_CONSOLE
-
-	printf("delay %ld ms\n", time);
-
-#endif
-
 	for ( ; time > 0; time--)
 		Delay1KTCYx( (unsigned long) ((_XTAL_FREQ /4.0) /1000000.0 ));
 }
