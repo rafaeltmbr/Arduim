@@ -1,14 +1,14 @@
 # Arduim
-Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.br/sccs2012/material-pic/Manual%20KIT%20PIC18F4550.pdf?attredirects=0 "Manual.pdf"). This board is based on [PIC16F4550](https://ww1.microchip.com/downloads/en/devicedoc/39632e.pdf "Datasheet") microcontroller. Available headers:
-
-- [arduim.h](include/arduim.h "header file") - Equivalent to Arduino.h header. Currently implemented functions:
-  - [pinMode](src/arduim.c "source file") - configures pinout direction
-  - [digitalRead](src/arduim.c "source file") - write to a digital output pin
-  - [digitalWrite](src/arduim.c "source file") - read from a digital output pin
-  - [analogRead](src/arduim.c "source file") - read from a analog input pin (ADC)
-  - [analogWrite](src/arduim.c "source file") - write to a analog output pin (PWM)
-  - [delay](src/arduim.c "source file") - wait for a period of time
-  - [map](src/arduim.c "source file") - map distinct ranges
+Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.br/sccs2012/material-pic/Manual%20KIT%20PIC18F4550.pdf?attredirects=0 "Manual.pdf"). This board is based on [PIC16F4550](https://ww1.microchip.com/downloads/en/devicedoc/39632e.pdf "Datasheet") microcontroller.
+- Available headers:
+  - [arduim.h](include/arduim.h "header file") - Equivalent to Arduino.h header. Currently implemented functions:
+    - [pinMode](src/arduim.c "source file") - configures pinout direction
+    - [digitalRead](src/arduim.c "source file") - write to a digital output pin
+    - [digitalWrite](src/arduim.c "source file") - read from a digital output pin
+    - [analogRead](src/arduim.c "source file") - read from a analog input pin (ADC)
+    - [analogWrite](src/arduim.c "source file") - write to a analog output pin (PWM)
+    - [delay](src/arduim.c "source file") - wait for a period of time
+    - [map](src/arduim.c "source file") - map distinct ranges
   
 - [lcd.h](include/arduim.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
   - Currently implemented functions:
