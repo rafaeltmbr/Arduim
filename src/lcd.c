@@ -9,19 +9,19 @@ void lcd_select(lcd_t* lcd_ptr)
 
 lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)
 {
-	return (lcd_t) {
-		lcd_print,
-		lcd_printl,
-		lcd_printi,
-		lcd_printc,
-		lcd_clear,
-		lcd_set_cursor,
-		{
-			rs,
-			en,
-			port
-		}
-	};
+    lcd_t b = {
+        lcd_print,
+        lcd_printl,
+        lcd_printi,
+        lcd_printc,
+        lcd_clear,
+        lcd_set_cursor
+    };
+
+    b.pins.rs = rs;
+    b.pins.en = en;
+    b.pins.port = port;
+    return b;
 }
 
 void lcd_init(void)
