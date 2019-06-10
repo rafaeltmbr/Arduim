@@ -10,15 +10,15 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - [delay](https://github.com/rafaeltmbr/Arduim/blob/442623a7e0893f3a1807250b0f704c4fda4b9c6c/src/arduim.c#L260 "source file") - wait for a period of time
   - [map](https://github.com/rafaeltmbr/Arduim/blob/442623a7e0893f3a1807250b0f704c4fda4b9c6c/src/arduim.c#L254 "source file") - convert a number from a given range to another
   
-### [lcd.h](include/lcd.h "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
+### [lcd.h](include/lcd.h#L1 "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
 - Currently implemented functions:
-  - [lcd_get](src/lcd.c "source file") - get a lcd_t struct
-  - [lcd_select](src/lcd.c "source file") - select a lcd_t struct
+  - [lcd_get](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L10 "source file") - get a lcd_t struct
+  - [lcd_select](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L5 "source file") - select a lcd_t struct
   
 - Currently impemented methods:
-  - [.clear](src/lcd.c "source file") - clears the display
+  - [.clear](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L120 "source file") - clears the display
   - [.setPosition](src/lcd.c "source file") - set the cursor to a given position
-  - [.prints](src/lcd.c "source file") - prints a given string to the lcd
-  - [.printl](src/lcd.c "source file") - prints a given long integer to the lcd
-  - [.printi](src/lcd.c "source file") - prints a given integer to the lcd
-  - [.printc](src/lcd.c "source file") - prints a given character to the lcd
+  - [.prints](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L86 "source file") - prints a given string to the lcd
+  - [.printl](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L99 "source file") - prints a given long integer to the lcd
+  - [.printi](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L106 "source file") - prints a given integer to the lcd
+  - [.printc](https://github.com/rafaeltmbr/Arduim/blob/20d03c13593db5e68061009a36a3d06ae7a67ca8/src/lcd.c#L113 "source file") - prints a given character to the lcd
