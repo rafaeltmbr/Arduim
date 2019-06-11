@@ -105,9 +105,10 @@ void loop(void);
 
 long map(long, long, long, long, long);
 void delay(unsigned long);
+void delayMicrosseconds(unsigned int);
 
 #if ARDUIM_SOURCE == 1
-# include "../src/arduim.c"
+#include "../src/arduim.c"
 #endif
 
 #endif // ARDUIM_H

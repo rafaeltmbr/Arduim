@@ -208,6 +208,13 @@ void delay(unsigned long time)
 		Delay1KTCYx( (unsigned long) ((_XTAL_FREQ /4.0) /1000000.0 ));
 }
 
+void delayMicrosseconds(unsigned int time)
+{
+	for ( ; time > 0; time--)
+		for (unsigned int i=0; i < (unsigned int) ((_XTAL_FREQ /4.0) /1000000.0 ); i++)
+			DelayTCY();
+}
+
 static int getChannelADC(uint8_t pin)
 {
     switch (pin)

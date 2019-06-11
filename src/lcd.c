@@ -43,8 +43,7 @@ void lcd_init(void)
 	lcd_cmd(0b00111000);	// 8-bit mode, 7x5 and 2 lines
 	lcd_cmd(0b00010110); 	// Cursor advance right
 	lcd_cmd(0b00001100); 	// Turn display on and shut the cursor
-	lcd_cmd(0b00000001); 	// Clear display
-	delay(2);				// Wait operation conclude
+	lcd_clear();
 }
 
 void lcd_cmd(uint8_t cmd)
@@ -61,7 +60,7 @@ void lcd_cmd(uint8_t cmd)
 	}
 
 	digitalWrite(lcd_selected->pins.en, HIGH);	// enable instruction read
-	delay(1);									// wait operation to conclude
+	delayMicrosseconds(80);						// wait operation to conclude (40 us)
 	digitalWrite(lcd_selected->pins.en, LOW);	// disable instruction read
 }
 
@@ -79,7 +78,7 @@ void lcd_data(uint8_t data)
 	}
 
 	digitalWrite(lcd_selected->pins.en, HIGH);	// enable data read
-	delay(1);									// wait operation to conclude
+	delayMicrosseconds(80);						// wait operation to conclude (40 us)
 	digitalWrite(lcd_selected->pins.en, LOW);	// disable data read
 }
 
@@ -113,7 +112,7 @@ void lcd_printc(char c)
 void lcd_clear(void)
 {
 	lcd_cmd(0x01);
-	Delay1KTCYx(30);
+	delay(3);		// 1.6 ms to clear
 }
 
 void lcd_set_cursor(uint8_t column, uint8_t line)
