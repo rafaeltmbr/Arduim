@@ -1,9 +1,8 @@
 #include "../include/arduim.h"
 
-static void interrupt arduimInterruptHandler(void);
-
-static int getChannelADC(uint8_t); // map pin to ADC channel
-static int getRangeChannelsADC(uint8_t); // select a channels range
+void interrupt arduimInterruptHandler(void);
+static int getChannelADC(uint8_t); 			// map pin to ADC channel
+static int getRangeChannelsADC(uint8_t); 	// select a channels range
 
 void main(void)
 {
@@ -293,7 +292,7 @@ void detachInterrupt(uint8_t pin)
 		INTCONbits.GIE = 0;
 }
 
-static void interrupt arduimInterruptHandler(void)
+void interrupt arduimInterruptHandler(void)
 {
 	if (INTCONbits.INT0IF)
 	{
@@ -304,6 +303,6 @@ static void interrupt arduimInterruptHandler(void)
 	if (INTCONbits.INT1IF)
 	{
 		INTCONbits.INT1IF = 0;
-		interrupt_list[0]();
+		interrupt_list[1]();
 	}
 }
