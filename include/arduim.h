@@ -22,15 +22,15 @@
 #if ARDUIM_SOURCE == 1
 
 #ifndef DELAYS_SOURCE
-# define DELAYS_SOURCE 1
+#define DELAYS_SOURCE 1
 #endif
 
 #ifndef ADC_SOURCE
-# define ADC_SOURCE 1
+#define ADC_SOURCE 1
 #endif
 
 #ifndef PWM_SOURCE
-# define PWM_SOURCE 1
+#define PWM_SOURCE 1
 #endif
 
 #endif // ARDUIM_SOURCE
@@ -60,35 +60,35 @@
 #define EULER 2.718281828459045235360287471352
 
 #ifndef min
-# define min(a,b) ((a)<(b)?(a):(b))
+#define min(a,b) ((a)<(b)?(a):(b))
 #endif
 
 #ifndef max
-# define max(a,b) ((a)>(b)?(a):(b))
+#define max(a,b) ((a)>(b)?(a):(b))
 #endif
 
 #ifndef abs
-# define abs(x) ((x)>0?(x):-(x))
+#define abs(x) ((x)>0?(x):-(x))
 #endif
 
 #ifndef constrain
-# define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+#define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
 #endif 
 
 #ifndef round
-# define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
+#define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
 #endif
 
 #ifndef radians
-# define radians(deg) ((deg)*DEG_TO_RAD)
+#define radians(deg) ((deg)*DEG_TO_RAD)
 #endif
 
 #ifndef degrees
-# define degrees(rad) ((rad)*RAD_TO_DEG)
+#define degrees(rad) ((rad)*RAD_TO_DEG)
 #endif
 
 #ifndef sq
-# define sq(x) ((x)*(x))
+#define sq(x) ((x)*(x))
 #endif
 
 void pinMode(uint8_t, uint8_t);
@@ -97,7 +97,7 @@ int digitalRead(uint8_t);
 int analogRead(uint8_t);
 void analogWrite(uint8_t, int);
 
-void attachInterrupt(uint8_t, void (*)(void), int mode);
+void attachInterrupt(uint8_t, void (*)(void), int);
 void detachInterrupt(uint8_t);
 
 void setup(void);

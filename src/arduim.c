@@ -3,17 +3,11 @@
 //void interrupt my_isr_high(void);
 //void interrupt low_priority my_isr_low(void);
 
-static uint8_t getChannelADC(uint8_t); // map pin to ADC channel
-static uint8_t getRangeChannelsADC(uint8_t); // select a channels range
+static int getChannelADC(uint8_t); // map pin to ADC channel
+static int getRangeChannelsADC(uint8_t); // select a channels range
 
-static void init()
+void main(void)
 {
-
-}
-
-int main(void)
-{	
-	init();
 	setup();
 	for( ; ; )
 		loop();
@@ -214,7 +208,7 @@ void delay(unsigned long time)
 		Delay1KTCYx( (unsigned long) ((_XTAL_FREQ /4.0) /1000000.0 ));
 }
 
-static uint8_t getChannelADC(uint8_t pin)
+static int getChannelADC(uint8_t pin)
 {
     switch (pin)
     {
@@ -232,7 +226,7 @@ static uint8_t getChannelADC(uint8_t pin)
     }
 }
 
-static uint8_t getRangeChannelsADC(uint8_t pin)
+static int getRangeChannelsADC(uint8_t pin)
 {
     switch (pin)
     {
@@ -248,4 +242,14 @@ static uint8_t getRangeChannelsADC(uint8_t pin)
         case AA12: return ADC_13ANA;
 		default:   return ADC_0ANA; 	// No channels are analog
     }
+}
+
+void attachInterrupt(uint8_t pin, void (*callback)(void), int mode)
+{
+    
+}
+
+void detachInterrupt(uint8_t pin)
+{
+    
 }

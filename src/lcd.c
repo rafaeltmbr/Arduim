@@ -89,21 +89,21 @@ void lcd_print(const char* s)
 		lcd_data(*s);
 }
 
-void lcd_printl(const long l)
+void lcd_printl(long l)
 {
 	static char fmt[33];
     sprintf(fmt, "%ld", l);
 	lcd_print(fmt);
 }
 
-void lcd_printi(const int i)
+void lcd_printi(int i)
 {
 	static char fmt[33];
     sprintf(fmt, "%d", i);
 	lcd_print(fmt);
 }
 
-void lcd_printc(const char c)
+void lcd_printc(char c)
 {
 	static char fmt[2] = {0};
 	fmt[0] = c;
@@ -114,7 +114,7 @@ void lcd_clear(void)
 {
 	lcd_cmd(0x01);
 	Delay1KTCYx(30);
-};
+}
 
 void lcd_set_cursor(uint8_t column, uint8_t line)
 {
