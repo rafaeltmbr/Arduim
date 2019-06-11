@@ -26,7 +26,7 @@ void setup()
 void loop()
 {
     delay(1000);
-    int rpm = count * 60 / 58 * 60;
+    int rpm = count * 60 * 60 / 58;
     count = 0;
     lcd.setCursor(6, 1);
     lcd.printi(rpm);
