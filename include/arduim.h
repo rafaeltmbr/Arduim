@@ -12,28 +12,10 @@
 #pragma config WRTB = ON
 
 #ifndef _XTAL_FREQ
-#define _XTAL_FREQ 48000000
+#define _XTAL_FREQ 48000000UL
 #endif
 
-#ifndef ARDUIM_SOURCE
-#define ARDUIM_SOURCE 1
-#endif
-
-#if ARDUIM_SOURCE == 1
-
-#ifndef DELAYS_SOURCE
-#define DELAYS_SOURCE 1
-#endif
-
-#ifndef ADC_SOURCE
-#define ADC_SOURCE 1
-#endif
-
-#ifndef PWM_SOURCE
-#define PWM_SOURCE 1
-#endif
-
-#endif // ARDUIM_SOURCE
+#define ARDUIM_CYCLES_US ( (unsigned int) ((_XTAL_FREQ /4.0) /1000000.0 ) )
 
 #include "../include/pins_arduim.h"
 #include <stdint.h>
@@ -43,6 +25,7 @@
 #include <delays.h>
 #include <adc.h>
 #include <pwm.h>
+#include <portb.h>
 
 #define ARDUIM_ERROR -1
 #define LOW  0x0
@@ -51,6 +34,10 @@
 #define OUTPUT 0x0
 #define INPUT 0x1
 //#define INPUT_PULLUP 0x2
+
+//#define CHANGE  1 - NO AVAILABLE ON PIC18F chips
+#define FALLING 2
+#define RISING  3
 
 #define PI 3.1415926535897932384626433832795
 #define HALF_PI 1.5707963267948966192313216916398
@@ -106,6 +93,14 @@ void loop(void);
 long map(long, long, long, long, long);
 void delay(unsigned long);
 void delayMicrosseconds(unsigned int);
+
+#ifndef NULL
+#define NULL ((void*) 0)
+#endif
+
+#ifndef ARDUIM_SOURCE
+#define ARDUIM_SOURCE 1
+#endif
 
 #if ARDUIM_SOURCE == 1
 #include "../src/arduim.c"

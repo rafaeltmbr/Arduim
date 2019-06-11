@@ -18,7 +18,7 @@ void loop()
     
     int pot = analogRead(POTEN);
     analogWrite(PWM_LED, pot/4);
-    
+   
     int time =  map(pot, 0, 1023, 0, MAX_DELAY);    
     delay(time);
 }

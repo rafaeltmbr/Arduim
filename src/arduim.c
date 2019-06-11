@@ -1,7 +1,6 @@
 #include "../include/arduim.h"
 
-//void interrupt my_isr_high(void);
-//void interrupt low_priority my_isr_low(void);
+static void interrupt arduimInterruptHandler(void);
 
 static int getChannelADC(uint8_t); // map pin to ADC channel
 static int getRangeChannelsADC(uint8_t); // select a channels range
@@ -205,14 +204,15 @@ long map(long value, long fromLow, long fromHigh, long toLow, long toHigh)
 void delay(unsigned long time)
 {
 	for ( ; time > 0; time--)
-		Delay1KTCYx( (unsigned long) ((_XTAL_FREQ /4.0) /1000000.0 ));
+		Delay1KTCYx(ARDUIM_CYCLES_US);
 }
 
 void delayMicrosseconds(unsigned int time)
 {
+    unsigned int i;
 	for ( ; time > 0; time--)
-		for (unsigned int i=0; i < (unsigned int) ((_XTAL_FREQ /4.0) /1000000.0 ); i++)
-			DelayTCY();
+		for (i=0 ; i < ARDUIM_CYCLES_US; i++)
+			Delay1TCY();
 }
 
 static int getChannelADC(uint8_t pin)
@@ -251,12 +251,48 @@ static int getRangeChannelsADC(uint8_t pin)
     }
 }
 
+static void* interrupt_list[2];
+
 void attachInterrupt(uint8_t pin, void (*callback)(void), int mode)
 {
-    
+	if (mode != FALLING && mode != RISING)	
+		return;
+
+	mode = mode == FALLING ? FALLING_EDGE_INT : RISING_EDGE_INT;
+
+	switch (pin)
+	{
+		case B0:
+			interrupt_list[0] = callback;
+			OpenRB0INT(PORTB_CHANGE_INT_ON &  mode);
+			break;
+		case B1:
+			interrupt_list[1] = callback;
+			OpenRB1INT(PORTB_CHANGE_INT_ON &  mode);
+			break;
+	}
 }
 
 void detachInterrupt(uint8_t pin)
 {
-    
+	switch (pin)
+	{
+		case B0: OpenRB0INT(PORTB_CHANGE_INT_OFF); break;
+		case B1: OpenRB1INT(PORTB_CHANGE_INT_OFF); break;
+	}
+}
+
+static void interrupt arduimInterruptHandler(void)
+{
+	if (INTCONbits.INT0IF)
+	{
+		INTCONbits.INT0IF = 0;
+		interrupt_list[0]();
+	}
+
+	if (INTCONbits.INT1IF)
+	{
+		INTCONbits.INT1IF = 0;
+		interrupt_list[0]();
+	}
 }
