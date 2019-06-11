@@ -94,10 +94,6 @@ long map(long, long, long, long, long);
 void delay(unsigned long);
 void delayMicrosseconds(unsigned int);
 
-#ifndef NULL
-#define NULL ((void*) 0)
-#endif
-
 #ifndef ARDUIM_SOURCE
 #define ARDUIM_SOURCE 1
 #endif

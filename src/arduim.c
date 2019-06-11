@@ -1,6 +1,5 @@
 #include "../include/arduim.h"
 
-void interrupt arduimInterruptHandler(void);
 static int getChannelADC(uint8_t); 			// map pin to ADC channel
 static int getRangeChannelsADC(uint8_t); 	// select a channels range
 
@@ -279,11 +278,11 @@ void detachInterrupt(uint8_t pin)
 	switch (pin)
 	{
 		case B0:
-			interrupt_list[0] = NULL;
+			interrupt_list[0] = ((void*) 0);
 			OpenRB0INT(PORTB_CHANGE_INT_OFF);
 			break;
 		case B1:
-			interrupt_list[1] = NULL;
+			interrupt_list[1] = ((void*) 0);
 			OpenRB1INT(PORTB_CHANGE_INT_OFF);
 			break;
 	}
@@ -292,7 +291,7 @@ void detachInterrupt(uint8_t pin)
 		INTCONbits.GIE = 0;
 }
 
-void interrupt arduimInterruptHandler(void)
+void interrupt ArduimInterruptHandler(void)
 {
 	if (INTCONbits.INT0IF)
 	{
