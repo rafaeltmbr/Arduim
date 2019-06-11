@@ -271,15 +271,26 @@ void attachInterrupt(uint8_t pin, void (*callback)(void), int mode)
 			OpenRB1INT(PORTB_CHANGE_INT_ON &  mode);
 			break;
 	}
+
+	INTCONbits.GIE = 1;
 }
 
 void detachInterrupt(uint8_t pin)
 {
 	switch (pin)
 	{
-		case B0: OpenRB0INT(PORTB_CHANGE_INT_OFF); break;
-		case B1: OpenRB1INT(PORTB_CHANGE_INT_OFF); break;
+		case B0:
+			interrupt_list[0] = NULL;
+			OpenRB0INT(PORTB_CHANGE_INT_OFF);
+			break;
+		case B1:
+			interrupt_list[1] = NULL;
+			OpenRB1INT(PORTB_CHANGE_INT_OFF);
+			break;
 	}
+
+	if (! (interrupt_list[0] || interrupt_list[1]) )
+		INTCONbits.GIE = 0;
 }
 
 static void interrupt arduimInterruptHandler(void)
