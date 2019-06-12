@@ -20,7 +20,7 @@ void setup()
     attachInterrupt(HALL_SENSOR, counter, FALLING);
 
     lcd.setCursor(0, 0);
-    lcd.prints("Tachometer (RPM)");
+    lcd.printf("Tachometer (RPM)");
     
     pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -31,7 +31,6 @@ void loop()
     int rpm = count * 60 / 58;
     count = 0;
     lcd.setCursor(6, 1);
-    lcd.printi(rpm);
-    lcd.prints("   ");
+    lcd.printf("%4d", rpm);
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 }
