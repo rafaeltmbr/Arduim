@@ -128,8 +128,8 @@ void lcd_printf(const char* s, ...)
 {
 	va_list ap;
 	va_start(ap, s);
-	char buffer[33];
-	vsnprintf(buffer, sizeof(buffer), s, ap);
-	lcd_prints(buffer);
+	char buffer[64];
+	vsprintf(buffer, s, ap); //vsnprintf not supported
+	lcd_print(buffer);
 	va_end(ap);
 }
