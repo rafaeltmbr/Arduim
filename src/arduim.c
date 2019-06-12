@@ -205,7 +205,7 @@ void delay(unsigned long time)
 		Delay1KTCYx(ARDUIM_CYCLES_US);
 }
 
-void delayMicrosseconds(unsigned int time)
+void delayMicroseconds(unsigned int time)
 {
     unsigned int i;
 	for ( ; time > 0; time--)

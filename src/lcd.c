@@ -62,7 +62,7 @@ void lcd_cmd(uint8_t cmd)
 	}
 
 	digitalWrite(lcd_selected->pins.en, HIGH);	// enable instruction read
-	delayMicrosseconds(80);						// wait operation to conclude (40 us)
+	delayMicroseconds(80);						// wait operation to conclude (40 us)
 	digitalWrite(lcd_selected->pins.en, LOW);	// disable instruction read
 }
 
@@ -80,7 +80,7 @@ void lcd_data(uint8_t data)
 	}
 
 	digitalWrite(lcd_selected->pins.en, HIGH);	// enable data read
-	delayMicrosseconds(80);						// wait operation to conclude (40 us)
+	delayMicroseconds(80);						// wait operation to conclude (40 us)
 	digitalWrite(lcd_selected->pins.en, LOW);	// disable data read
 }
 

@@ -92,7 +92,7 @@ void loop(void);
 
 long map(long, long, long, long, long);
 void delay(unsigned long);
-void delayMicrosseconds(unsigned int);
+void delayMicroseconds(unsigned int);
 
 #ifndef ARDUIM_SOURCE
 #define ARDUIM_SOURCE 1
