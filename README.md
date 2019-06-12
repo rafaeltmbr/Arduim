@@ -3,24 +3,24 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
 ### [arduim.h](include/arduim.h#L1 "header file") - Equivalent to Arduino.h header.
 - Currently implemented functions:
   - pinMode - configures pinout direction
-  - digitalRead - write to a digital output pin
-  - digitalWrite - read from a digital output pin
-  - analogRead - read from a analog input pin (ADC)
-  - analogWrite - write to a analog output pin (PWM)
+  - digitalRead - read from a digital input pin
+  - digitalWrite - write to a digital output pin
+  - analogRead - read from an analog input pin (ADC)
+  - analogWrite - write to an analog output pin (PWM)
   - delay - wait the specified amount of milliseconds
   - delayMicroseconds - wait the specified amount of microseconds
-  - map - convert a number from a given range to another
+  - map - convert a number from a given range into another
   - attachInterrupt - attach a callback function to a pin interrupt event
-  - detachInterrupt - dettach any interrupt to the given pin
+  - detachInterrupt - dettach interrupt events for the specified pin
   
 ### [lcd.h](include/lcd.h#L1 "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
 - Currently implemented functions:
   - lcd_get - get a lcd_t struct
-  - lcd_select - select a lcd_t struct
+  - lcd_select - select and initialize the lcd_t struct
   
 - Currently implemented methods:
   - .clear - clears the display
-  - .setPosition - set the cursor to a given position
+  - .setPosition - set the cursor at the specified position (column, line)
   - .prints - prints a given string to the lcd
   - .printl - prints a given long integer to the lcd
   - .printi - prints a given integer to the lcd
