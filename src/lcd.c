@@ -15,6 +15,7 @@ lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)
         lcd_printl,
         lcd_printi,
         lcd_printc,
+		lcd_printf,
         lcd_clear,
         lcd_set_cursor
     };
@@ -121,4 +122,14 @@ void lcd_set_cursor(uint8_t column, uint8_t line)
 	line = (line == 0) ? 0x80 : 0xC0;
 	column &= 0x0F;
 	lcd_cmd(line | column);
+}
+
+void lcd_printf(const char* s, ...)
+{
+	va_list ap;
+	va_start(ap, s);
+	char buffer[33];
+	vsnprintf(buffer, sizeof(buffer), s, ap);
+	lcd_prints(buffer);
+	va_end(ap);
 }
