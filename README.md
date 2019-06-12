@@ -7,7 +7,8 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - digitalWrite - read from a digital output pin
   - analogRead - read from a analog input pin (ADC)
   - analogWrite - write to a analog output pin (PWM)
-  - delay - wait for a period of time
+  - delay - wait the specified amount of milliseconds
+  - delayMicroseconds - wait the specified amount of microseconds
   - map - convert a number from a given range to another
   - attachInterrupt - attach a callback function to a pin interrupt event
   - detachInterrupt - dettach any interrupt to the given pin
