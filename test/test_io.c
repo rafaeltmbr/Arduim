@@ -1,8 +1,8 @@
 #include "../include/arduim.h"
 
 #define MAX_DELAY 1000
-#define PWM_LED 1
-#define POTEN AA0
+#define PWM_LED PWM1
+#define POTEN AA4
 
 void setup()
 {

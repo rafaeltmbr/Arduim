@@ -15,7 +15,7 @@ void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
     pinMode(INTERRUPT_PIN, INPUT);
-    attachInterrupt(INTERRUPT_PIN, switchLED, RISING);
+    attachInterrupt(INTERRUPT_PIN, switchLED, FALLING);
 }
 
 void loop()

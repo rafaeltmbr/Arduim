@@ -28,11 +28,11 @@
 #include <portb.h>
 
 #define ARDUIM_ERROR -1
-#define LOW  0x0
-#define HIGH 0x1
+#define LOW  0
+#define HIGH 1
 
-#define OUTPUT 0x0
-#define INPUT 0x1
+#define OUTPUT 0
+#define INPUT 1
 //#define INPUT_PULLUP 0x2
 
 //#define CHANGE  1 - NO AVAILABLE ON PIC18F chips

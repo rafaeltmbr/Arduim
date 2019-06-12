@@ -45,7 +45,7 @@
 #define E2 31
 
 #define HIGHER_PIN E2
-#define LED_BUILTIN E0
+#define LED_BUILTIN C0
 
 // ANALOG PINS
 #define AA0   A0
@@ -58,6 +58,7 @@
 #define AA10  B1
 #define AA11  B4
 #define AA12  B0
+#define TRIMPOT AA4
 
 // PWM PINS
 #define PWM1  C2

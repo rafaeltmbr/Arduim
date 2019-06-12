@@ -249,9 +249,10 @@ static int getRangeChannelsADC(uint8_t pin)
     }
 }
 
-static void* interrupt_list[2];
+typedef void (*arduim_callback)(void);
+static arduim_callback interrupt_list[2];
 
-void attachInterrupt(uint8_t pin, void (*callback)(void), int mode)
+void attachInterrupt(uint8_t pin, arduim_callback callback, int mode)
 {
 	if (mode != FALLING && mode != RISING)	
 		return;
@@ -279,11 +280,11 @@ void detachInterrupt(uint8_t pin)
 	{
 		case B0:
 			interrupt_list[0] = ((void*) 0);
-			OpenRB0INT(PORTB_CHANGE_INT_OFF);
+			OpenRB0INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
 			break;
 		case B1:
 			interrupt_list[1] = ((void*) 0);
-			OpenRB1INT(PORTB_CHANGE_INT_OFF);
+			OpenRB1INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
 			break;
 	}
 
@@ -296,12 +297,12 @@ void interrupt ArduimInterruptHandler(void)
 	if (INTCONbits.INT0IF)
 	{
 		INTCONbits.INT0IF = 0;
-		interrupt_list[0]();
+                interrupt_list[0]();
 	}
 
-	if (INTCONbits.INT1IF)
+	if (INTCON3bits.INT1IF)
 	{
-		INTCONbits.INT1IF = 0;
+		INTCON3bits.INT1IF = 0;
 		interrupt_list[1]();
 	}
 }
