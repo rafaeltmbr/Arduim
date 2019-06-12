@@ -35,7 +35,7 @@
 #define INPUT 1
 //#define INPUT_PULLUP 0x2
 
-//#define CHANGE  1 - NO AVAILABLE ON PIC18F chips
+//#define CHANGE  1 - NOT AVAILABLE ON PIC18F chips
 #define FALLING 2
 #define RISING  3
 
@@ -63,7 +63,7 @@
 #endif 
 
 #ifndef round
-#define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
+#define round(x) ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
 #endif
 
 #ifndef radians

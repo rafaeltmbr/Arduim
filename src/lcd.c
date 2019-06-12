@@ -5,7 +5,7 @@ static lcd_t* lcd_selected = NULL;
 void lcd_select(lcd_t* lcd_ptr)
 {
 	lcd_selected = lcd_ptr;
-        lcd_init();
+	lcd_init();
 }
 
 lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)

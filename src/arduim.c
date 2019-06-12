@@ -279,11 +279,11 @@ void detachInterrupt(uint8_t pin)
 	switch (pin)
 	{
 		case B0:
-			interrupt_list[0] = ((void*) 0);
+			interrupt_list[0] = (arduim_callback) 0;
 			OpenRB0INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
 			break;
 		case B1:
-			interrupt_list[1] = ((void*) 0);
+			interrupt_list[1] = (arduim_callback) 0;
 			OpenRB1INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
 			break;
 	}
@@ -297,7 +297,7 @@ void interrupt ArduimInterruptHandler(void)
 	if (INTCONbits.INT0IF)
 	{
 		INTCONbits.INT0IF = 0;
-                interrupt_list[0]();
+		interrupt_list[0]();
 	}
 
 	if (INTCON3bits.INT1IF)
