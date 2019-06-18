@@ -25,4 +25,3 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - .printl - prints a given long integer to the lcd
   - .printi - prints a given integer to the lcd
   - .printc - prints a given character to the lcd
-  - .printf - prints formatted text (like stdio printf)
