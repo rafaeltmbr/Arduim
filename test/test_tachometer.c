@@ -1,9 +1,9 @@
 #include "../include/arduim.h"
 #include "../include/lcd.h"
 
-#define HALL_SENSOR  B0
+#define HALL_SENSOR  B1
 
-unsigned int count = 0;
+unsigned long count = 0;
 lcd_t lcd;
 
 void counter(void)
@@ -20,7 +20,7 @@ void setup()
     attachInterrupt(HALL_SENSOR, counter, FALLING);
 
     lcd.setCursor(0, 0);
-    lcd.printf("Tachometer (RPM)");
+    lcd.prints("Tachometer (RPM)");
     
     pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -28,9 +28,13 @@ void setup()
 void loop()
 {
     delay(1000);
-    int rpm = count * 60 / 58;
+    long rpm = count * 60 / 58;
     count = 0;
+  
     lcd.setCursor(6, 1);
-    lcd.printf("%4d", rpm);
+    lcd.prints("    ");
+    lcd.setCursor(6, 1);
+    lcd.printl(rpm);
+    
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 }

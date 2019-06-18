@@ -21,7 +21,6 @@ typedef struct {
     void (*printl) (long);
     void (*printi) (int);
     void (*printc) (char);
-    void (*printf) (const char*, ...);
     void (*clear) (void);
     void (*setCursor) (uint8_t, uint8_t);
     struct {
@@ -43,7 +42,6 @@ void lcd_printi(int);           //print an integer
 void lcd_printc(char);          //print a character
 void lcd_clear(void);           //clear the display
 void lcd_set_cursor(uint8_t line, uint8_t column); //position the cursor
-void lcd_printf(const char* s, ...); //print formatted output
 
 #ifndef LCD_SOURCE
 #define LCD_SOURCE 1

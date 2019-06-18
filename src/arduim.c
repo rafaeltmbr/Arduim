@@ -263,11 +263,11 @@ void attachInterrupt(uint8_t pin, arduim_callback callback, int mode)
 	{
 		case B0:
 			interrupt_list[0] = callback;
-			OpenRB0INT(PORTB_CHANGE_INT_ON &  mode);
+			OpenRB0INT(PORTB_CHANGE_INT_ON & mode & PORTB_PULLUPS_ON);
 			break;
 		case B1:
 			interrupt_list[1] = callback;
-			OpenRB1INT(PORTB_CHANGE_INT_ON &  mode);
+			OpenRB1INT(PORTB_CHANGE_INT_ON & mode & PORTB_PULLUPS_ON);
 			break;
 	}
 
@@ -280,11 +280,11 @@ void detachInterrupt(uint8_t pin)
 	{
 		case B0:
 			interrupt_list[0] = (arduim_callback) 0;
-			OpenRB0INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
+			OpenRB0INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_OFF);
 			break;
 		case B1:
 			interrupt_list[1] = (arduim_callback) 0;
-			OpenRB1INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_ON);
+			OpenRB1INT(PORTB_CHANGE_INT_OFF & PORTB_PULLUPS_OFF);
 			break;
 	}
 
