@@ -15,6 +15,7 @@ lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)
         lcd_printl,
         lcd_printi,
         lcd_printc,
+		printf,
         lcd_clear,
         lcd_set_cursor
     };
