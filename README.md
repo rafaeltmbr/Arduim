@@ -13,7 +13,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - attachInterrupt - attach a callback function to a pin interrupt event
   - detachInterrupt - dettach interrupt events for the specified pin
   
-### [lcd.h](include/lcd.h#L1 "header file") - LCD library. Partially compatible with Arduino's LiquidCrystal.h
+### [lcd.h](include/lcd.h#L1 "header file") - LCD library.
 - Currently implemented functions:
   - lcd_get - get a lcd_t struct
   - lcd_select - select and initialize the lcd_t struct
