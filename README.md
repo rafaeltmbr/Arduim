@@ -1,5 +1,5 @@
 # Arduim
-Arduino-like library for [Contim's board](doc/Manual KIT PIC18F4550.pdf "Manual.pdf"). This board is based on [PIC18F4550](https://ww1.microchip.com/downloads/en/devicedoc/39632e.pdf "Datasheet") microcontroller. Available headers:
+Arduino-like library for [Contim's board](doc/Manual\ KIT\ PIC18F4550.pdf "Manual.pdf"). This board is based on [PIC18F4550](https://ww1.microchip.com/downloads/en/devicedoc/39632e.pdf "Datasheet") microcontroller. Available headers:
 ### [arduim.h](include/arduim.h#L1 "header file") - Equivalent to Arduino.h header.
 - Currently implemented functions:
   - pinMode - configures pinout direction
