@@ -12,11 +12,9 @@ lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)
 {
     lcd_t b = {
         lcd_print,
-        lcd_printl,
         lcd_printi,
         lcd_printui,
         lcd_printc,
-        lcd_printf,
         lcd_printd,
         lcd_clear,
         lcd_set_cursor
