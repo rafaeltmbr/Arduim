@@ -22,7 +22,7 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
   - .clear - clears the display
   - .setPosition - set the cursor at the specified position (column, line)
   - .prints  - prints a string
-  - .printi  - prints a integer
-  - .printui - prints a unsigned integer
+  - .printi  - prints a integer/long interger
+  - .printui - prints a unsigned integer/unsigned long interger
   - .printc  - prints a character
   - .printd  - prints a double/float
