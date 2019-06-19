@@ -21,7 +21,7 @@ typedef struct {
     void (*printl) (long);
     void (*printi) (int);
     void (*printc) (char);
-    int (*printf_t) (const char *, ...),
+    int (*printf) (const char *, ...),
     void (*clear) (void);
     void (*setCursor) (uint8_t, uint8_t);
     struct {
