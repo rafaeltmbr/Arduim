@@ -14,8 +14,10 @@ lcd_t lcd_get(uint8_t rs, uint8_t en, uint8_t port)
         lcd_print,
         lcd_printl,
         lcd_printi,
+        lcd_printui,
         lcd_printc,
-		printf,
+        lcd_printf,
+        lcd_printd,
         lcd_clear,
         lcd_set_cursor
     };
@@ -90,17 +92,17 @@ void lcd_print(const char* s)
 		lcd_data(*s);
 }
 
-void lcd_printl(long l)
+void lcd_printi(long i)
 {
 	static char fmt[33];
-    sprintf(fmt, "%ld", l);
+    sprintf(fmt, "%i", i);
 	lcd_print(fmt);
 }
 
-void lcd_printi(int i)
+void lcd_printui(unsigned long i)
 {
 	static char fmt[33];
-    sprintf(fmt, "%d", i);
+    sprintf(fmt, "%ui", i);
 	lcd_print(fmt);
 }
 
@@ -108,6 +110,13 @@ void lcd_printc(char c)
 {
 	static char fmt[2] = {0};
 	fmt[0] = c;
+	lcd_print(fmt);
+}
+
+void lcd_printd(double d)
+{
+	static char fmt[33];
+    sprintf(fmt, "%.2f", d);
 	lcd_print(fmt);
 }
 

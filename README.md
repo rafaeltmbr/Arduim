@@ -21,8 +21,8 @@ Arduino-like library for [Contim's board](https://sites.google.com/a/contim.eng.
 - Currently implemented methods:
   - .clear - clears the display
   - .setPosition - set the cursor at the specified position (column, line)
-  - .prints - prints a given string to the lcd
-  - .printl - prints a given long integer to the lcd
-  - .printi - prints a given integer to the lcd
-  - .printc - prints a given character to the lcd
-  - .printf - same as stdio printf (Note: need to be tested)
+  - .prints  - prints a string
+  - .printi  - prints a integer
+  - .printui - prints a unsigned integer
+  - .printc  - prints a character
+  - .printd  - prints a double/float

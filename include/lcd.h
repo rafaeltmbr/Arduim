@@ -18,10 +18,10 @@
 
 typedef struct {
     void (*prints) (const char*);
-    void (*printl) (long);
-    void (*printi) (int);
+    void (*printi) (long);
+    void (*printui) (unsigned long);
     void (*printc) (char);
-    int (*printf) (const char *, ...),
+    void (*printd) (double);
     void (*clear) (void);
     void (*setCursor) (uint8_t, uint8_t);
     struct {

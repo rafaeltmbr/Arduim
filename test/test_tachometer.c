@@ -32,12 +32,9 @@ void loop()
     count = 0;
   
     lcd.setCursor(6, 1);
-    lcd.printf("%4d", rpm);
-    /*
     lcd.prints("    ");
     lcd.setCursor(6, 1);
     lcd.printl(rpm);
-    */
     
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 }
