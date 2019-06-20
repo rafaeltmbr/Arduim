@@ -1,7 +1,7 @@
 #include "../include/arduim.h"
 #include "../include/lcd.h"
 
-#define HALL_SENSOR  B1
+#define TACH_SENSOR  B1
 
 unsigned long count = 0;
 lcd_t lcd;
@@ -16,8 +16,8 @@ void setup()
     lcd = lcd_get(C6, C7, LCD_PORTD);
     lcd_select(&lcd);
 
-    pinMode(HALL_SENSOR, INPUT);
-    attachInterrupt(HALL_SENSOR, counter, FALLING);
+    pinMode(TACH_SENSOR, INPUT);
+    attachInterrupt(TACH_SENSOR, counter, FALLING);
 
     lcd.setCursor(0, 0);
     lcd.prints("Tachometer (RPM)");
